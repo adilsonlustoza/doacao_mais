@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardbackground"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="br.com.lustoza.doacaomais.AjudaActivity"
+    tools:showIn="@layout/activity_ajuda">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:layout_margin="1dp"
+        android:orientation="vertical"
+        android:padding="4dp">
+
+        <android.support.v7.widget.CardView
+            cardBackgroundColor="@color/colorFontWhite"
+            cardCornerRadius="7dp"
+            cardElevation="0dp"
+            cardUseCompatPadding="true"
+            contentPadding="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:adjustViewBounds="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/card_edge"
+                android:padding="4dp">
+
+                <ImageView
+                    android:id="@+id/imgLocalizacao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:contentDescription="TODO"
+                    android:src="@drawable/map_24" />
+
+                <TextView
+                    android:id="@+id/lblLocalizacaoTitulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/imgLocalizacao"
+                    android:inputType="textMultiLine"
+                    android:singleLine="true"
+                    android:text="@string/ajuda_localizacao_titulo"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lblLocalizacaoTitulo"
+                    android:layout_margin="2dp"
+                    android:layout_toRightOf="@+id/imgLocalizacao"
+                    android:inputType="textMultiLine"
+                    android:singleLine="true"
+                    android:text="@string/ajuda_localizacao_content"
+                    android:textColor="@color/color_grey"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            cardBackgroundColor="@color/colorFontWhite"
+            cardCornerRadius="7dp"
+            cardElevation="0dp"
+            cardUseCompatPadding="true"
+            contentPadding="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:adjustViewBounds="true"
+            tools:targetApi="lollipop">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/card_edge"
+                android:padding="4dp">
+
+                <ImageView
+                    android:id="@+id/imgEntidade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/centros_24" />
+
+                <TextView
+                    android:id="@+id/lblEntidadeTitulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/imgEntidade"
+                    android:inputType="textMultiLine"
+                    android:singleLine="true"
+                    android:text="@string/ajuda_centros_titulo"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lblEntidadeTitulo"
+                    android:layout_margin="2dp"
+                    android:layout_toRightOf="@+id/imgEntidade"
+                    android:inputType="textMultiLine"
+                    android:singleLine="true"
+                    android:text="@string/ajuda_centros_content"
+                    android:textColor="@color/color_grey"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            cardBackgroundColor="@color/colorFontWhite"
+            cardCornerRadius="7dp"
+            cardElevation="0dp"
+            cardUseCompatPadding="true"
+            contentPadding="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:adjustViewBounds="true"
+            tools:targetApi="lollipop">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/card_edge"
+                android:padding="4dp"
+
+                >
+
+                <ImageView
+                    android:id="@+id/imgBazar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/shop_24" />
+
+                <TextView
+                    android:id="@+id/lblBazarTitulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/imgBazar"
+                    android:inputType="textMultiLine"
+                    android:singleLine="true"
+                    android:text="@string/ajuda_bazar_titulo"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lblBazarTitulo"
+                    android:layout_margin="2dp"
+                    android:layout_toRightOf="@+id/imgBazar"
+                    android:inputType="textMultiLine"
+                    android:singleLine="true"
+                    android:text="@string/ajuda_bazar_content"
+                    android:textColor="@color/color_grey"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            cardBackgroundColor="@color/colorFontWhite"
+            cardCornerRadius="7dp"
+            cardElevation="0dp"
+            cardUseCompatPadding="true"
+            contentPadding="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:adjustViewBounds="true"
+            tools:targetApi="lollipop">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/card_edge"
+                android:padding="4dp">
+
+                <ImageView
+                    android:id="@+id/imgNoticia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/newspaper_24" />
+
+                <TextView
+                    android:id="@+id/lblNoticiaTitulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/imgNoticia"
+                    android:inputType="textMultiLine"
+                    android:singleLine="true"
+                    android:text="@string/ajuda_noticias_titulo"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lblNoticiaTitulo"
+                    android:layout_margin="2dp"
+                    android:layout_toRightOf="@+id/imgNoticia"
+                    android:inputType="textMultiLine"
+                    android:singleLine="true"
+                    android:text="@string/ajuda_noticias_content"
+                    android:textColor="@color/color_grey"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            cardBackgroundColor="@color/colorFontWhite"
+            cardCornerRadius="7dp"
+            cardElevation="0dp"
+            cardUseCompatPadding="true"
+            contentPadding="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:adjustViewBounds="true"
+            tools:targetApi="lollipop">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/card_edge"
+                android:padding="4dp">
+
+                <ImageView
+                    android:id="@+id/imgPerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/users_24" />
+
+                <TextView
+                    android:id="@+id/lblPerfilTitulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/imgPerfil"
+                    android:inputType="textMultiLine"
+                    android:singleLine="true"
+                    android:text="@string/ajuda_perfil_titulo"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lblPerfilTitulo"
+                    android:layout_margin="2dp"
+                    android:layout_toRightOf="@+id/imgPerfil"
+                    android:inputType="textMultiLine"
+                    android:singleLine="true"
+                    android:text="@string/ajuda_perfil_content"
+                    android:textColor="@color/color_grey"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            cardBackgroundColor="@color/colorFontWhite"
+            cardCornerRadius="7dp"
+            cardElevation="0dp"
+            cardUseCompatPadding="true"
+            contentPadding="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            tools:targetApi="lollipop">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/card_edge"
+                android:padding="4dp">
+
+                <ImageView
+                    android:id="@+id/imgPreferencia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:contentDescription="TODO"
+                    android:src="@drawable/settings_24" />
+
+                <TextView
+                    android:id="@+id/lblPreferenciaTitulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/imgPreferencia"
+                    android:inputType="textMultiLine"
+                    android:singleLine="true"
+                    android:text="@string/ajuda_preferencia_titulo"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lblPreferenciaTitulo"
+                    android:layout_margin="2dp"
+                    android:layout_toRightOf="@+id/imgPreferencia"
+                    android:inputType="textMultiLine"
+                    android:singleLine="true"
+                    android:text="@string/ajuda_preferencia_content"
+                    android:textColor="@color/color_grey"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

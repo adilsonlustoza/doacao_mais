@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardInstituicao"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    cardview:cardCornerRadius="7dp"
+    cardview:cardElevation="0dp"
+    cardview:cardUseCompatPadding="true"
+    cardview:contentPadding="0dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:layout_margin="1dp"
+        android:background="@drawable/card_edge"
+        android:padding="4dp">
+
+        <ImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="2dp"
+            android:scaleType="centerCrop"
+            tools:ignore="ContentDescription" />
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="45dp"
+            android:layout_toRightOf="@+id/thumbnail"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/colorTitle"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded,SpUsage" />
+
+        <TextView
+            android:id="@+id/txtData"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/title"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/thumbnail"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/colorInfo"
+            android:textSize="12dp"
+            android:textStyle="italic"
+            tools:ignore="RtlHardcoded,SpUsage" />
+
+
+        <ImageView
+            android:id="@+id/imgGoTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="12dp"
+            android:alpha="0.7"
+            android:scaleType="centerCrop"
+            android:src="@drawable/arrow_go_32"
+            tools:ignore="ContentDescription" />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

@@ -1,0 +1,140 @@
+<resources>
+    <string name="app_name">Doação Mais</string>
+
+    <string name="navigation_drawer_open">Abrir gaveta de navegacao</string>
+    <string name="navigation_drawer_close">Fechar gaveta de navegacao</string>
+
+    <string name="action_help">Ajuda</string>
+    <string name="action_exit">Sair</string>
+    <string name="action_politica">Politica</string>
+
+
+    <!--Facebook Parameters-->
+    <string name="facebook_app_id">183411142466322</string>
+    <string name="fb_login_protocol_scheme">fb183411142466322</string>
+    <string name="title_activity_login">Entrar</string>
+
+
+    <!--Google Parametes-->
+    <string name="google_button_text">Entrar com Google</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_name">Nome</string>
+    <string name="prompt_email">Email</string>
+    <string name="action_sign_in">Entrar com o seu email</string>
+
+    <string name="error_invalid_name">O nome deve ter pelo menos 3 digitos!</string>
+    <string name="error_invalid_email">Este e-mail e invalido</string>
+
+    <string name="title_activity_welcome">Bem Vindo</string>
+    <string name="title_activity_tablayout">Você é mais!</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+
+    <!-- Example settings for Data & Sync -->
+
+
+    <string-array name="combo_estado">
+        <!--   <item>Acre</item>
+        <item>Alagoas</item>
+        <item>Amazonas</item>
+        <item>Bahia</item>
+        <item>Ceará</item>
+        <item>Distrito Federal</item>
+        <item>Espírito Sant</item>
+        <item>Maranhão</item>
+        <item>Mato Grosso</item>
+        <item>Mato Grosso do Sul</item>
+        <item>Minas Gerais</item>
+        <item>Pará</item>
+        <item>Paraíba</item>
+        <item>Paraná</item>
+        <item>Pernambuco</item>
+        <item>Piauí</item>
+        <item>Rio de Janeiro</item>
+        <item>Rio Grande do Norte</item>
+        <item>Rio Grande do Sul</item>
+        <item>Rondônia</item>
+        <item>Roraima</item>
+        <item>Santa Catarina</item>-->
+        <item>São Paulo</item>
+        <!-- <item>Sergipe</item>
+        <item>Tocantins</item>-->
+
+    </string-array>
+
+
+    <string-array name="listMinutos">
+        <item>15</item>
+        <item>30</item>
+        <item>45</item>
+        <item>60</item>
+    </string-array>
+
+    <string-array name="listMinutosDesc">
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>45 minutos</item>
+        <item>1  hora</item>
+    </string-array>
+
+
+    <!-- Example settings for Notifications -->
+
+
+    <!-- Google Button text -->
+    <string name="btn_login_from_google">Entrar com Google</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="imagem_usuario">Imagem Usuario</string>
+    <string name="labelImagePerfil">Alterar imagem de perfil?</string>
+    <string name="entre_com_o_nome_de_perfil">Entre com o nome de perfil</string>
+    <string name="entre_com_o_email_de_perfil">Entre com o email de perfil</string>
+    <string name="doacao_na_conta_bancaria">Doação depósito bancário</string>
+    <string name="title_activity_web_view">WebViewActivity</string>
+
+    <string name="accept">accept</string>
+
+    <string name="title_activity_ajuda">AjudaActivity</string>
+    <string name="title_empty" />
+
+
+    <string name="ajuda_preferencia_titulo">Preferências</string>
+    <string name="ajuda_preferencia_content">Permitem aos usuários modificar características e comportamentos do aplicativo.</string>
+
+    <string name="ajuda_perfil_titulo">Perfil</string>
+    <string name="ajuda_perfil_content">Armazena dados pessoais dos usuários, tais como: nome, e-mail e dados de endereço. Importante estar preenchido para identificar sua residência no mapa.</string>
+
+    <string name="ajuda_noticias_titulo">Notícias</string>
+    <string name="ajuda_noticias_content">Divulga algum acontecimento, dado ou evento relacionado a temas sobre o cancêr, não necessariamente somente ligado ao cancêr infantil.</string>
+
+    <string name="ajuda_bazar_titulo">Bazares</string>
+    <string name="ajuda_bazar_content">Divulga os bazares beneficientes ligados as instituições, fornecendo período de funcionamento e informações de localização ao ser selecionado .</string>
+
+    <string name="ajuda_centros_titulo">Entidades</string>
+    <string name="ajuda_centros_content">Divulga os centros de apoio a criança com cancêr, dando acesso a tela de detalhes que possuí maiores informações, meios de doação, comunicação e integração com as entidades.</string>
+
+    <string name="ajuda_localizacao_titulo">Localização</string>
+    <string name="ajuda_localizacao_content">Exibe no mapa a localização das entidades, possibilitando traçar rota. Da acesso a serviço de GPS Google  utilizando a rede de dados móveis.</string>
+    <string name="pref_atualizar_title">Atualizar dados rede</string>
+    <string name="pref_list_atualizar_dialog">Checar as atualizações a partir da rede a cada ?</string>
+    <string name="pref_list_atualizar_summary">Verifica se a rede de dados ou wi-fi está ativa, para efetuar atualização de dados.</string>
+    <string name="image">Image</string>
+    <string name="todo">Descricao da Imagem</string>
+    <string name="mascote">mascote doacao mais</string>
+    <string name="localizacao">Localização</string>
+    <string name="SearchView">SearchView</string>
+    <string name="PreenchimentoEndereco">Verifique o preenchimento da Rua,Bairro e Cidade</string>
+    <string name="NaoFoiPossivelValidarLocalizacao">Não foi possível validar a localização do seu endereço. Verifique a rede e os  dados de endereço.</string>
+    <string name="IntegracaoPagSeguro">Integração PagSeguro</string>
+    <string name="IntegracaoPayPal">Integração PayPal</string>
+    <string name="PayPalDoacao">As doações por cartão são efetuadas diretamente através da página do Pay Pal!</string>
+    <string name="PagSeguroDoacao">As doações por cartão são efetuadas diretamente através da página do PagSeguro!</string>
+    <string name="PagSeguroPayPalDoacao">As doações por cartão são efetuadas diretamente através da página do PagSeguro e Pay Pal!</string>
+
+
+</resources>

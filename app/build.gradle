@@ -1,0 +1,103 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.google.gms.google-services'
+
+
+android {
+    signingConfigs {
+        release {
+            storeFile file('E:\\PROJETOS\\AndroidStudio\\publish\\doacao_mais.jks')
+            storePassword "Ap104F"
+            keyAlias "DoacaoMais"
+            keyPassword "Ap104F"
+        }
+        debug {
+            storeFile file('E:\\PROJETOS\\AndroidStudio\\publish\\doacao_mais.jks')
+            storePassword 'Ap104F'
+            keyAlias 'DoacaoMais'
+            keyPassword 'Ap104F'
+        }
+    }
+    compileSdkVersion 29
+    buildToolsVersion '30.0.2'
+    defaultConfig {
+        applicationId "br.com.lustoza.doacaomais"
+        minSdkVersion 17
+        targetSdkVersion 29
+        versionCode 16
+        versionName "1.6.3"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        signingConfig signingConfigs.release
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable false
+        }
+    }
+    productFlavors {
+    }
+    sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
+}
+
+ext {
+    playServicesVersion = '16.1.0' // update accordingly
+    suportVersion = '25.3.1'
+}
+
+dependencies {
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:support-annotations:28.0.0'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    //noinspection GradleCompatible
+    implementation 'com.android.support:support-v4:28.0.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:preference-v7:28.0.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:28.0.0'
+
+    //------------------------------------------Google----------------------------------------------
+    //-----------------------------------------Teste--------------------------------------------
+    implementation "com.google.android.gms:play-services-maps:16.0.0"
+    implementation "com.google.android.gms:play-services-auth:16.0.0"
+    implementation "com.google.android.gms:play-services-gcm:16.0.0"
+    implementation "com.google.android.gms:play-services-drive:16.0.0"
+    implementation "com.google.android.gms:play-services-location:16.0.0"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.facebook.android:facebook-android-sdk:[5,6]'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    //------------------------------------------Terceiros----------------------------------------------
+    implementation 'cn.carbs.android:MDDialog:1.0.0'
+    implementation 'com.github.yesidlazaro:GmailBackground:1.2.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'me.tatarka.support:jobscheduler:0.1.1'
+    implementation 'org.sufficientlysecure:html-textview:3.5'
+
+    //------------------------------------------Lombok----------------------------------------------
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.google.code.gson:gson:2.8.7'
+    implementation 'com.squareup.okhttp3:okhttp:4.5.0'
+    //-----------------------------------------Teste--------------------------------------------
+    testImplementation 'junit:junit:4.12'
+    //-----------------------------------------Grafico--------------------------------------------
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
+}
+

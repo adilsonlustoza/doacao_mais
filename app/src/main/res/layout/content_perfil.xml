@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardbackground"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="br.com.lustoza.doacaomais.PerfilActivity">
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="always"
+        android:verticalScrollbarPosition="right"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:id="@+id/imgPerfil"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="14dp"
+                    android:contentDescription="@string/imagem_usuario"
+                    android:contextClickable="true"
+                    android:onClick="GetPhoto"
+                    android:src="@drawable/user_boy" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="34dp"
+                    android:layout_toEndOf="@+id/imgPerfil"
+                    android:clickable="true"
+                    android:text="@string/labelImagePerfil"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/color_grey" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/lblNomePerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:inputType="none"
+                    android:text="Nome"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/txtNomePerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@+id/lblNomePerfil"
+                    android:cursorVisible="false"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:hint="@string/entre_com_o_nome_de_perfil"
+                    android:inputType="none"
+                    android:textColor="@color/color_grey"
+                    android:textSize="15dp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignBaseline="@+id/txtEmailPerfil"
+                    android:layout_alignBottom="@+id/txtEmailPerfil"
+                    android:layout_toStartOf="@+id/txtNomePerfil"
+                    android:text="Email"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/txtEmailPerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtNomePerfil"
+                    android:layout_alignStart="@+id/txtNomePerfil"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
+                    android:cursorVisible="false"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:hint="@string/entre_com_o_email_de_perfil"
+                    android:inputType="none"
+                    android:textColor="@color/color_grey"
+                    android:textSize="15dp" />
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/color_grey" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="215dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Logradouro"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/txtLogradourolPerfil"
+                    android:layout_width="294dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/txtBairroPerfil"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="0dp"
+                    android:ellipsize="end"
+                    android:hint="Entre com o logradouro"
+                    android:inputType="textAutoComplete"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true"
+                    android:textSize="15dp" />
+
+
+                <TextView
+                    android:id="@+id/lblBairroPerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="55dp"
+                    android:text="Bairro"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+
+                    />
+
+                <EditText
+                    android:id="@+id/txtBairroPerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtLogradourolPerfil"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/lblBairroPerfil"
+                    android:ellipsize="end"
+                    android:hint="Entre com o bairro"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true"
+                    android:textSize="15dp" />
+
+
+                <TextView
+                    android:id="@+id/lblCidadePerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="95dp"
+                    android:text="Cidade"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+
+                    />
+
+
+                <EditText
+                    android:id="@+id/txtCidadePerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtBairroPerfil"
+                    android:layout_alignStart="@+id/txtBairroPerfil"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@+id/lblCidadePerfil"
+                    android:ellipsize="end"
+                    android:hint="Entre com a cidade"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/lblEstadoPerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="135dp"
+                    android:text="Estado"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+
+                <Spinner
+                    android:id="@+id/spinnerEstado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/txtCidadePerfil"
+                    android:layout_alignTop="@+id/lblEstadoPerfil"
+                    android:layout_alignParentEnd="true"
+                    android:entries="@array/combo_estado"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="175dp"
+                    android:text="Cep"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/txtCEPPerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/spinnerEstado"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="165dp"
+                    android:cursorVisible="true"
+                    android:ellipsize="end"
+                    android:enabled="true"
+                    android:focusable="true"
+                    android:hint="00000-000"
+                    android:inputType="textPostalAddress"
+                    android:maxLength="9"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true"
+                    android:textSize="15sp"
+
+                    />
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="130dp">
+
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab_enviar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="bottom|left|end"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:cropToPadding="true"
+                    android:src="@drawable/save_16_white"
+                    app:backgroundTint="@color/colorPrimaryDark"
+                    app:elevation="6dp"
+                    app:fabSize="normal"
+                    app:layout_anchorGravity="bottom|left|end"
+                    app:pressedTranslationZ="12dp" />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</RelativeLayout>

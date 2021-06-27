@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "483897752722",
+    "firebase_url": "https://fir-login-doacao-mais.firebaseio.com",
+    "project_id": "firebase-login-doacao-mais",
+    "storage_bucket": "firebase-login-doacao-mais.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483897752722:android:e359fcabf961474b",
+        "android_client_info": {
+          "package_name": "br.com.lustoza.doacaomais"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483897752722-q9oebhqfg833i9qcc7shm2qm6r640maa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.lustoza.doacaomais",
+            "certificate_hash": "04c7dd2b2fa88a9cfb2edb62c06f7a01e3310586"
+          }
+        },
+        {
+          "client_id": "483897752722-co5d0c01q6jqi0eqj2ar86fcjaovcv8m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.lustoza.doacaomais",
+            "certificate_hash": "b7237129bfa432c8c67a092e0006da036be072da"
+          }
+        },
+        {
+          "client_id": "483897752722-lq1bogb4q109c95gecfvfcfb51lhjpar.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.lustoza.doacaomais",
+            "certificate_hash": "a881166dc436e8b5e5dc0c3f015857426c9e8f3a"
+          }
+        },
+        {
+          "client_id": "483897752722-oolv9hk8ap64favartgokp2nba735fqd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.lustoza.doacaomais",
+            "certificate_hash": "74b9a5b81810d70e3513e60456a437f4625e26b0"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVy7yiPadrs_hWiKqVRdcpcdraBGuz_Ys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483897752722-mff8qccedp60oktbnsgj85ivldis3tv8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

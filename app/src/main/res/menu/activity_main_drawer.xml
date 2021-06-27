@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/map_24"
+            android:title="Localização" />
+        <item
+            android:id="@+id/nav_instituicoes"
+            android:icon="@drawable/centros_24"
+            android:title="Entidades" />
+
+        <item
+            android:id="@+id/nav_eventos"
+            android:icon="@drawable/shop_24"
+            android:title="Bazares" />
+
+        <item
+            android:id="@+id/nav_newspaper"
+            android:icon="@drawable/newspaper_24"
+            android:title="Notícias" />
+
+    </group>
+
+    <item android:title="Comunicação">
+        <menu>
+            <item
+                android:id="@+id/nav_perfil"
+                android:icon="@drawable/users_24"
+                android:title="Perfil" />
+            <item
+                android:id="@+id/nav_pref"
+                android:icon="@drawable/settings_24"
+                android:title="Preferências" />
+
+        </menu>
+    </item>
+
+
+</menu>

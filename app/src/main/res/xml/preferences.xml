@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <PreferenceCategory
+        android:key="pref_category_configuracoes"
+        android:title="Configurações">
+
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_logado"
+            android:summary="Nao quero entrar com dados de login novamente."
+            android:title="Manter logado" />
+
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_local"
+            android:summary="Armazena os dados, dando agilidade e economizando dados. Porém aumenta um pouco o espaço em disco."
+            android:title="Manter dados local" />
+
+
+        <ListPreference
+            android:defaultValue="15"
+            android:dialogTitle="@string/pref_list_atualizar_dialog"
+            android:entries="@array/listMinutosDesc"
+            android:entryValues="@array/listMinutos"
+            android:key="pref_atualizar"
+            android:summary="@string/pref_list_atualizar_summary"
+            android:title="@string/pref_atualizar_title" />
+
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:key="pref_category_notificacao"
+        android:title="Notificações">
+
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_notificacao"
+            android:summary="Receber notificações de atualização de conteúdo"
+            android:title="Receber notificação" />
+
+        <RingtonePreference
+            android:defaultValue="true"
+            android:key="pref_ringstone"
+            android:summary="Som que será emitido ao enviar uma notificação"
+            android:title="Som de notificação"
+
+            />
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

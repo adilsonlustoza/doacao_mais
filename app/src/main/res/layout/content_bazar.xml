@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardbackground"
+    android:paddingLeft="2dp"
+    android:paddingTop="0dp"
+    android:paddingRight="2dp"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="br.com.lustoza.doacaomais.BazarActivity"
+    tools:showIn="@layout/activity_bazar">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeToRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleViewBazar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:overScrollMode="ifContentScrolls"
+            android:verticalScrollbarPosition="right"
+            tools:targetApi="LOLLIPOP"
+
+            />
+
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <include layout="@layout/include_consulta_vazia" />
+
+    <include layout="@layout/include_progress" />
+
+</RelativeLayout>
