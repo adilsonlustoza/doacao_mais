@@ -84,13 +84,7 @@ public class _SuperFragment extends Fragment {
         super.onActivityCreated(bundle);
         setRetainInstance(true);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            CheckPermissions(new String[]{
-                            "android.permission.FINE_LOCATION",
-                            "android.permission.ACCESS_COARSE_LOCATION"
-                    }
-            );
-        }
+
 
         final ExecutorService executor = Executors.newSingleThreadExecutor();
         final AtomicReference atomicReferenceFinal = new AtomicReference();
@@ -132,39 +126,7 @@ public class _SuperFragment extends Fragment {
 
     }
 
-    protected void CheckPermissions(String[] perms) {
-        try {
-            if (
-                    ContextCompat.checkSelfPermission(Objects.requireNonNull(getContext()), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
-                            ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
-                            ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED
-            ) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                    requestPermissions(perms, permissionRequest);
-
-            }
-        } catch (Exception ex) {
-            TrackHelper.WriteError(Objects.requireNonNull(getContext()), "CheckPermissions", ex.getMessage());
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NotNull String[] permissions, @NotNull int[] grantResults) {
-
-        if (
-                (Arrays.asList(permissions).contains("android.permission.FINE_LOCATION") && grantResults[0] != PackageManager.PERMISSION_GRANTED) &&
-                        (Arrays.asList(permissions).contains("android.permission.ACCESS_COARSE_LOCATION") && grantResults[1] != PackageManager.PERMISSION_GRANTED)
-        )
-            Toast.makeText(getContext(), "Seu local não será demonstrado em localização.", Toast.LENGTH_LONG).show();
-        else
-            intent = new Intent(getContext(), MapsActivity.class);
-
-        if (Arrays.asList(permissions).contains("android.permission.CAMERA") && grantResults[0] != PackageManager.PERMISSION_GRANTED)
-            Toast.makeText(getContext(), "Você não poderá atualizar sua foto no perfil.", Toast.LENGTH_LONG).show();
-
-    }
-
-    @Override
+     @Override
     public void onResume() {
         super.onResume();
 

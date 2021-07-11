@@ -14,17 +14,18 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.text.util.Linkify;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
@@ -34,9 +35,11 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -58,11 +61,13 @@ import br.com.lustoza.doacaomais.Utils.HandleFile;
 public class MapsActivity extends _SuperActivity
         implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener,
-        LocationListener {
+        GoogleApiClient.OnConnectionFailedListener {
 
+
+
+
+    private int permissionRequest ;
     //Google Objects
-
     protected static Location globalLocation;
     //Criar o objeto mapa
     protected GoogleMap map;
@@ -142,7 +147,7 @@ public class MapsActivity extends _SuperActivity
 
     private void ChecaLocalizacao() {
         if (!NetWorkService.instance().isEnabledLocation(superContext))
-            super.showSimpleDialog("Usar localização? ", "Está funcionalidade ativar a localização para continuar", EnumCommand.Localization);
+            super.showSimpleDialog("Usar localização? ", "É necessário ativar a localização para continuar", EnumCommand.Localization);
     }
 
     @Override
@@ -631,15 +636,23 @@ public class MapsActivity extends _SuperActivity
 
             }, null);
 
-            LocationManager lm;
+
+             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                 this.CheckPermissions();
+             else
+                 mapService.SetDeviceLocation(new LatLng(globalLocation.getLatitude(),globalLocation.getLongitude()));
+
+
             if (localLocation == null) {
-                lm = (LocationManager) getSystemService(LOCATION_SERVICE);
-                localLocation = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+                localLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 1, new InternalLocationListener());
             }
 
             if (localLocation == null) {
-                lm = (LocationManager) getSystemService(LOCATION_SERVICE);
-                localLocation = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+                localLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 0, new InternalLocationListener());
             }
 
         } catch (Exception e) {
@@ -648,6 +661,40 @@ public class MapsActivity extends _SuperActivity
             return localLocation;
         }
     }
+
+    private void CheckPermissions() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ==
+                PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) ==
+                        PackageManager.PERMISSION_GRANTED) {
+
+            mapService.SetDeviceLocation(new LatLng(localLocation.getLatitude(),localLocation.getLongitude()));
+           // map.setMyLocationEnabled(true);
+           // map.getUiSettings().setMyLocationButtonEnabled(true);
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION},
+                    permissionRequest);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NotNull String[] permissions, @NotNull int[] grantResults) {
+
+        if (
+                (Arrays.asList(permissions).contains("android.permission.FINE_LOCATION") && grantResults[0] != PackageManager.PERMISSION_GRANTED) &&
+                        (Arrays.asList(permissions).contains("android.permission.ACCESS_COARSE_LOCATION") && grantResults[1] != PackageManager.PERMISSION_GRANTED)
+        )
+            Toast.makeText(getApplicationContext(), "Seu local não será demonstrado em localização.", Toast.LENGTH_LONG).show();
+        else
+            intent = new Intent(getApplicationContext(), MapsActivity.class);
+
+        if (Arrays.asList(permissions).contains("android.permission.CAMERA") && grantResults[0] != PackageManager.PERMISSION_GRANTED)
+            Toast.makeText(getApplicationContext(), "Você não poderá atualizar sua foto no perfil.", Toast.LENGTH_LONG).show();
+
+    }
+
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
@@ -668,15 +715,6 @@ public class MapsActivity extends _SuperActivity
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
 
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-        if (location != null) {
-            globalLocation = location;
-            mapService.SetDeviceLocation(new LatLng(globalLocation.getLatitude(), globalLocation.getLongitude()));
-            ChangeRoute(markerChange);
-        }
     }
 
     //---------------------------------Async---------------------------------------------------
@@ -712,6 +750,33 @@ public class MapsActivity extends _SuperActivity
 
         }
 
+    }
+
+    private class InternalLocationListener implements android.location.LocationListener {
+
+        @Override
+        public void onLocationChanged(Location location) {
+            if (location != null) {
+                globalLocation = location;
+                mapService.SetDeviceLocation(new LatLng(globalLocation.getLatitude(), globalLocation.getLongitude()));
+                ChangeRoute(markerChange);
+            }
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+
+        }
     }
 
 }

@@ -45,7 +45,6 @@ public class MapService {
     MarkerOptions markerOptions;
     CameraUpdate cameraUpdate;
     CameraPosition cameraPosition;
-    MapLocationSource myLocation;
     double varDistance;
     Context context;
     Polyline polyline = null;
@@ -162,12 +161,9 @@ public class MapService {
     public void SetDeviceLocation(LatLng latLng) {
         try {
 
-            if (ActivityCompat.checkSelfPermission(this.context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this.context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-                return;
             map.setMyLocationEnabled(true);
-            myLocation = new MapLocationSource();
-            map.setLocationSource(myLocation);
-            myLocation.setLocation(latLng);
+            map.getUiSettings().setMyLocationButtonEnabled(true);
+
         } catch (Exception ex) {
             Log.e("SetDeviceLocation", "SetDeviceLocation : " + ex.getMessage());
         }
