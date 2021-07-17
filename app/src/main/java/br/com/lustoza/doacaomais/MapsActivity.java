@@ -1,6 +1,7 @@
 package br.com.lustoza.doacaomais;
 
 import android.Manifest;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -68,7 +69,7 @@ public class MapsActivity extends _SuperActivity
 
     private int permissionRequest ;
     //Google Objects
-    protected static Location globalLocation;
+    protected Location globalLocation;
     //Criar o objeto mapa
     protected GoogleMap map;
     protected GoogleApiClient googleApiClient;
@@ -97,7 +98,6 @@ public class MapsActivity extends _SuperActivity
     private String url;
     private GenericParcelableHelper<List<Caccc>> genericParcelableHelper;
 
-    private Location localLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -195,11 +195,9 @@ public class MapsActivity extends _SuperActivity
             //Tipo do Mapa
             map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-            if (listLatLng == null)
-                listLatLng = new ArrayList();
-            //Inicia o Mapa na localização( Av. Paulista -SP)
-            if (bundle == null)
-                latLng = new LatLng(-23.6362736, -46.780512);
+            if (bundle == null) {
+                globalLocation = this.ProviderGlobalLocation();
+                latLng = new LatLng(globalLocation.getLatitude(),globalLocation.getLongitude());            }
             else if (bundle.getParcelable(ConstantHelper.objCaccc) != null) {
                 caccc = ((GenericParcelableHelper<Caccc>) bundle.getParcelable(ConstantHelper.objCaccc)).getValue();
                 latLng = new LatLng(caccc.getEndereco().getLatitude(), caccc.getEndereco().getLongitude());
@@ -621,8 +619,8 @@ public class MapsActivity extends _SuperActivity
     private Location ProviderGlobalLocation() {
 
         try {
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-                return null;
+            if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+                this.CheckPermissions();
 
             fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -630,35 +628,30 @@ public class MapsActivity extends _SuperActivity
                 @Override
                 public void onLocationResult(LocationResult locationResult) {
                     for (Location location : locationResult.getLocations()) {
-                        localLocation = location;
+                        globalLocation = location;
                     }
                 }
 
             }, null);
 
-
-             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                 this.CheckPermissions();
-             else
-                 mapService.SetDeviceLocation(new LatLng(globalLocation.getLatitude(),globalLocation.getLongitude()));
-
-
-            if (localLocation == null) {
+            if (globalLocation == null) {
                 locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-                localLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                globalLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 1, new InternalLocationListener());
             }
 
-            if (localLocation == null) {
+            if (globalLocation == null) {
                 locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-                localLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                globalLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
                 locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 0, new InternalLocationListener());
             }
+
+            mapService.SetDeviceLocation(new LatLng(globalLocation.getLatitude(),globalLocation.getLongitude()));
 
         } catch (Exception e) {
             TrackHelper.WriteError(this, "parseResult", e.getMessage());
         } finally {
-            return localLocation;
+            return globalLocation;
         }
     }
 
@@ -668,9 +661,8 @@ public class MapsActivity extends _SuperActivity
                 ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) ==
                         PackageManager.PERMISSION_GRANTED) {
 
-            mapService.SetDeviceLocation(new LatLng(localLocation.getLatitude(),localLocation.getLongitude()));
-           // map.setMyLocationEnabled(true);
-           // map.getUiSettings().setMyLocationButtonEnabled(true);
+            mapService.SetDeviceLocation(new LatLng(globalLocation.getLatitude(),globalLocation.getLongitude()));
+
         } else {
             ActivityCompat.requestPermissions(this, new String[]{
                             Manifest.permission.ACCESS_FINE_LOCATION,
@@ -681,14 +673,20 @@ public class MapsActivity extends _SuperActivity
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NotNull String[] permissions, @NotNull int[] grantResults) {
+      super.onRequestPermissionsResult(requestCode,permissions,grantResults);
 
         if (
                 (Arrays.asList(permissions).contains("android.permission.FINE_LOCATION") && grantResults[0] != PackageManager.PERMISSION_GRANTED) &&
                         (Arrays.asList(permissions).contains("android.permission.ACCESS_COARSE_LOCATION") && grantResults[1] != PackageManager.PERMISSION_GRANTED)
         )
             Toast.makeText(getApplicationContext(), "Seu local não será demonstrado em localização.", Toast.LENGTH_LONG).show();
-        else
-            intent = new Intent(getApplicationContext(), MapsActivity.class);
+        else {
+             finish();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                startActivity(getIntent(), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+            else
+                startActivity(getIntent());
+        }
 
         if (Arrays.asList(permissions).contains("android.permission.CAMERA") && grantResults[0] != PackageManager.PERMISSION_GRANTED)
             Toast.makeText(getApplicationContext(), "Você não poderá atualizar sua foto no perfil.", Toast.LENGTH_LONG).show();
