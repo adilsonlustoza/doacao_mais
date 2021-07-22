@@ -1,5 +1,6 @@
 package br.com.lustoza.doacaomais.Helper;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -27,6 +28,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
+import br.com.lustoza.doacaomais.Domain.Caccc;
 import br.com.lustoza.doacaomais.Interfaces.IOnLoadCallBack;
 import br.com.lustoza.doacaomais.Utils.HandleFile;
 import br.com.lustoza.doacaomais.Utils.UtilityJson;
@@ -79,6 +81,7 @@ public class HttpHelper {
         return response;
     }
 
+    @SuppressLint("NewApi")
     @Deprecated()
     public static int makeServiceSend(String reqUrl, JSONObject jsonObject) {
         int HttpResult = -3;
@@ -286,11 +289,7 @@ public class HttpHelper {
                 String fileJson = handleFile.ReadFile();
 
                 if (TextUtils.isEmpty(fileJson) || fileJson.length() < 10) {
-                    String jsonString = HttpHelper.makeOkHttpCall(url);
-                    if (jsonString != null && jsonString.length() > 0) {
-                        handleFile.WriteFile(jsonString);
-                        fileJson = jsonString;
-                    }
+                    fileJson = WriteJsonInFile(url);
                 }
 
                 final List<?> list = new UtilityJson<List<?>>().ParseJsonArrayToList(fileJson, clazz);
@@ -328,26 +327,25 @@ public class HttpHelper {
 
             executor.execute(() -> {
                 try {
+                    Object objClazz;
 
                     if (handleFile == null)
                         handleFile = new HandleFile(context, fileDownloadList);
 
                     String fileJson = handleFile.ReadFile();
 
-                    if (TextUtils.isEmpty(fileJson) || fileJson.length() < 10) {
+                    if (!TextUtils.isEmpty(fileJson) && fileJson.length() > 10) {
 
-                        String jsonString = HttpHelper.makeOkHttpCall(url);
+                        objClazz = new UtilityJson<>().ParseJsonToObj(fileJson, clazz);
 
-                        if (jsonString != null && jsonString.length() > 0) {
-                            handleFile.WriteFile(jsonString);
-                            fileJson = jsonString;
+                        if (objClazz instanceof Caccc) {
+                            Caccc caccc = (Caccc) objClazz;
+                            if (!url.trim().endsWith(String.valueOf(caccc.getCacccId()).trim()))
+                                objClazz = new UtilityJson<>().ParseJsonToObj(WriteJsonInFile(url), clazz);
                         }
-
-                    }
-
-                    Object objClazz = new UtilityJson<>().ParseJsonToObj(fileJson, clazz);
+                    } else
+                        objClazz = new UtilityJson<>().ParseJsonToObj(WriteJsonInFile(url), clazz);
                     atomicReferenceFinal.set(objClazz);
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -367,6 +365,18 @@ public class HttpHelper {
             TrackHelper.WriteError(this, "", e.getMessage());
         }
         return atomicReferenceFinal.get();
+    }
+
+    private String WriteJsonInFile(String url) {
+        try {
+            String jsonString = HttpHelper.makeOkHttpCall(url);
+            if (jsonString != null && jsonString.length() > 0)
+                handleFile.WriteFile(jsonString);
+            return jsonString;
+        } catch (Exception e) {
+            TrackHelper.WriteError(this, "", e.getMessage());
+        }
+        return null;
     }
 
 }
