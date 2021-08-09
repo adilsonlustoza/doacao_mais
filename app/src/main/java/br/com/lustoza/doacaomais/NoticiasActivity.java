@@ -2,11 +2,14 @@ package br.com.lustoza.doacaomais;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.ImageSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +24,7 @@ import br.com.lustoza.doacaomais.Domain.Noticia;
 import br.com.lustoza.doacaomais.Helper.ConstantHelper;
 import br.com.lustoza.doacaomais.Helper.GenericParcelableHelper;
 import br.com.lustoza.doacaomais.Helper.HttpHelper;
+import br.com.lustoza.doacaomais.Helper.PrefHelper;
 import br.com.lustoza.doacaomais.Helper.TrackHelper;
 import br.com.lustoza.doacaomais.Interfaces.IOnLoadCallBack;
 import br.com.lustoza.doacaomais.Interfaces.OnNoticiaItemClickListener;
@@ -33,6 +37,7 @@ public class NoticiasActivity extends _SuperActivity implements View.OnCreateCon
     private List<Noticia> noticiaList;
     private Noticia noticia;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private RecyclerView recyclerView;
 
     //region ***Ciclo de Vida***
     @Override
@@ -145,7 +150,7 @@ public class NoticiasActivity extends _SuperActivity implements View.OnCreateCon
         try {
 
             ImageView imageViewConsultaVazia = this.findViewById(R.id.imgConsultaVazia);
-            RecyclerView recyclerView = this.findViewById(R.id.recycleNoticia);
+            recyclerView = this.findViewById(R.id.recycleNoticia);
             List<Noticia> viewList;
 
             if (keep)
@@ -177,6 +182,11 @@ public class NoticiasActivity extends _SuperActivity implements View.OnCreateCon
                     }
                 });
 
+                String showGesture = PrefHelper.getString(superContext, PrefHelper.PreferenciaNoticia);
+
+                if ( (showGesture==null || showGesture.isEmpty()) )
+                      ShowGestureIcon();
+
             } else {
                 recyclerView.setVisibility(View.GONE);
                 imageViewConsultaVazia.setVisibility(View.VISIBLE);
@@ -186,6 +196,23 @@ public class NoticiasActivity extends _SuperActivity implements View.OnCreateCon
             TrackHelper.WriteError(this, "Execute Noticias", e.getMessage());
         }
     }
+
+    private void ShowGestureIcon(){
+        try{
+        SpannableStringBuilder builder = new SpannableStringBuilder();
+        builder.append(" ").setSpan(new ImageSpan(this, R.drawable.swipe), builder.length()-1 , builder.length(), 0);
+        builder.append("  ").append("Deslize a tela esquerda!");
+        Snackbar.make(recyclerView, builder, Snackbar.LENGTH_LONG).setAction("OK", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PrefHelper.setString(superContext, PrefHelper.PreferenciaNoticia,"S");
+            }
+        }).show();
+    } catch (Exception e) {
+        TrackHelper.WriteError(this, "Execute Noticias", e.getMessage());
+    }
+    }
+
     //endregion
 
     //region ***Funcoes Especiais***

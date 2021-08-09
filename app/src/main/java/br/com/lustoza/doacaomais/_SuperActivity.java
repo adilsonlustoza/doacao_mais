@@ -442,7 +442,7 @@ public class _SuperActivity extends AppCompatActivity implements NavigationView.
             } else if (command == EnumCommand.NetWorkEnabledMobile) {
                 intent = new Intent();
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.setAction(Settings.ACTION_DATA_USAGE_SETTINGS);
+                intent.setAction(Settings.ACTION_DATA_ROAMING_SETTINGS);
                 startActivity(intent);
 
             } else if (command == EnumCommand.Localization) {

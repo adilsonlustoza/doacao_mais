@@ -45,7 +45,7 @@
                 android:layout_gravity="right"
                 android:layout_marginRight="7dp"
                 android:cropToPadding="true"
-                android:src="@drawable/pin_venda_rounded_64"
+                android:src="@drawable/touch_screen_64"
                 android:visibility="visible" />
 
 

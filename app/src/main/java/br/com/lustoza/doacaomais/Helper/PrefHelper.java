@@ -23,6 +23,7 @@ public class PrefHelper {
     public static final String PreferenciaLogado = "pref_logado";
     public static final String PreferenciaRecebeNotificacao = "pref_notificacao";
     public static final String PreferenciaRingstone = "pref_ringstone";
+    public static final String PreferenciaNoticia = "pref_notificia";
     private static SharedPreferences sharedPreferences;
 
     public static void setString(Context context, String chave, String value) {
