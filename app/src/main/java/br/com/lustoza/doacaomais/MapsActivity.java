@@ -39,7 +39,6 @@ import com.google.android.gms.maps.model.Marker;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -64,10 +63,6 @@ public class MapsActivity extends _SuperActivity
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
 
-
-
-
-    private int permissionRequest ;
     //Google Objects
     protected Location globalLocation;
     //Criar o objeto mapa
@@ -83,7 +78,7 @@ public class MapsActivity extends _SuperActivity
     protected LocationManager locationManager;
     protected LocationRequest mLocationRequest;
     protected FusedLocationProviderClient fusedLocationProviderClient;
-
+    private int permissionRequest;
     private Marker markerChange;
 
     private GenericParcelableHelper<Caccc> cacccGenericParcelableHelper;
@@ -97,7 +92,7 @@ public class MapsActivity extends _SuperActivity
     private LinearLayout ll;
     private String url;
     private GenericParcelableHelper<List<Caccc>> genericParcelableHelper;
-
+    private SupportMapFragment mapFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,8 +107,8 @@ public class MapsActivity extends _SuperActivity
             if (getIntent().getExtras() != null)
                 bundle = getIntent().getExtras().getBundle(ConstantHelper.objBundle);
             // private FragmentTransaction transaction;
-            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-            Objects.requireNonNull(mapFragment).getMapAsync(this);
+            mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+            // Objects.requireNonNull(mapFragment).getMapAsync(this);
 
             googleApiClient = new GoogleApiClient.Builder(this)
                     .addApi(LocationServices.API)
@@ -154,8 +149,11 @@ public class MapsActivity extends _SuperActivity
     public void onResume() {
         super.onResume();
         this.ChecaLocalizacao();
-        if (!googleApiClient.isConnected())
+
+        if (!googleApiClient.isConnected()) {
+            Objects.requireNonNull(mapFragment).getMapAsync(this);
             googleApiClient.connect();
+        }
 
     }
 
@@ -197,8 +195,8 @@ public class MapsActivity extends _SuperActivity
 
             if (bundle == null) {
                 globalLocation = this.ProviderGlobalLocation();
-                latLng = new LatLng(globalLocation.getLatitude(),globalLocation.getLongitude());            }
-            else if (bundle.getParcelable(ConstantHelper.objCaccc) != null) {
+                latLng = new LatLng(globalLocation.getLatitude(), globalLocation.getLongitude());
+            } else if (bundle.getParcelable(ConstantHelper.objCaccc) != null) {
                 caccc = ((GenericParcelableHelper<Caccc>) bundle.getParcelable(ConstantHelper.objCaccc)).getValue();
                 latLng = new LatLng(caccc.getEndereco().getLatitude(), caccc.getEndereco().getLongitude());
             } else if (bundle.getParcelable(ConstantHelper.objBazar) != null) {
@@ -454,21 +452,19 @@ public class MapsActivity extends _SuperActivity
                     if (cacccList.size() > 0) {
 
                         for (Caccc itemCaccc : cacccList) {
-
-                            String market1 = marker.getTitle().trim();
-                            String nome = itemCaccc.getNome();
-
+                            //String market1 = marker.getTitle().trim();
+                            //String nome = itemCaccc.getNome();
                             if (tag.equals("Centro") && itemCaccc.getNome().contains(marker.getTitle().trim()))
                                 caccc = itemCaccc;
 
                             if (tag.equals("Bazar")) {
-
                                 for (Bazar itemBazar : itemCaccc.getBazares()) {
-                                    String market2 = marker.getSnippet().trim();
-                                    String logradouro = itemBazar.getEndereco().getBairro().trim();
-
-                                    if (itemBazar.getEndereco().getBairro().contains(marker.getSnippet().trim()))
-                                        bazar = itemBazar;
+                                    if (itemBazar.getEndereco() != null) {
+                                        //String market2 = marker.getSnippet().trim();
+                                        //String logradouro = itemBazar.getEndereco().getBairro().trim();
+                                        if (itemBazar.getEndereco().getBairro().contains(marker.getSnippet().trim()))
+                                            bazar = itemBazar;
+                                    }
                                 }
                             }
                         }
@@ -619,7 +615,7 @@ public class MapsActivity extends _SuperActivity
     private Location ProviderGlobalLocation() {
 
         try {
-            if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
                 this.CheckPermissions();
 
             fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
@@ -646,7 +642,8 @@ public class MapsActivity extends _SuperActivity
                 locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 0, new InternalLocationListener());
             }
 
-            mapService.SetDeviceLocation(new LatLng(globalLocation.getLatitude(),globalLocation.getLongitude()));
+            if (mapService != null)
+                mapService.SetDeviceLocation(new LatLng(globalLocation.getLatitude(), globalLocation.getLongitude()));
 
         } catch (Exception e) {
             TrackHelper.WriteError(this, "parseResult", e.getMessage());
@@ -661,7 +658,8 @@ public class MapsActivity extends _SuperActivity
                 ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) ==
                         PackageManager.PERMISSION_GRANTED) {
 
-            mapService.SetDeviceLocation(new LatLng(globalLocation.getLatitude(),globalLocation.getLongitude()));
+            if (mapService != null)
+                mapService.SetDeviceLocation(new LatLng(globalLocation.getLatitude(), globalLocation.getLongitude()));
 
         } else {
             ActivityCompat.requestPermissions(this, new String[]{
@@ -673,7 +671,7 @@ public class MapsActivity extends _SuperActivity
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NotNull String[] permissions, @NotNull int[] grantResults) {
-      super.onRequestPermissionsResult(requestCode,permissions,grantResults);
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (
                 (Arrays.asList(permissions).contains("android.permission.FINE_LOCATION") && grantResults[0] != PackageManager.PERMISSION_GRANTED) &&
@@ -681,7 +679,7 @@ public class MapsActivity extends _SuperActivity
         )
             Toast.makeText(getApplicationContext(), "Seu local não será demonstrado em localização.", Toast.LENGTH_LONG).show();
         else {
-             finish();
+            finish();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
                 startActivity(getIntent(), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
             else
@@ -692,7 +690,6 @@ public class MapsActivity extends _SuperActivity
             Toast.makeText(getApplicationContext(), "Você não poderá atualizar sua foto no perfil.", Toast.LENGTH_LONG).show();
 
     }
-
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
@@ -754,7 +751,7 @@ public class MapsActivity extends _SuperActivity
 
         @Override
         public void onLocationChanged(Location location) {
-            if (location != null) {
+            if (location != null && mapService != null) {
                 globalLocation = location;
                 mapService.SetDeviceLocation(new LatLng(globalLocation.getLatitude(), globalLocation.getLongitude()));
                 ChangeRoute(markerChange);

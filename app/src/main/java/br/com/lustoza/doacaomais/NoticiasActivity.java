@@ -1,5 +1,7 @@
 package br.com.lustoza.doacaomais;
 
+import android.app.Activity;
+import android.content.ComponentName;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.Snackbar;
@@ -100,8 +102,8 @@ public class NoticiasActivity extends _SuperActivity implements View.OnCreateCon
 
             this.progressBar = findViewById(R.id.progress_bar);
             this.progressBar.setVisibility(View.VISIBLE);
-
             bundle = getIntent().getBundleExtra(ConstantHelper.objBundle);
+
 
             if (savedInstanceState != null && savedInstanceState.getParcelable(Noticia.TAG) != null)
                 listNoticiaGenericParcelableHelper = savedInstanceState.getParcelable(Noticia.TAG);
@@ -152,6 +154,7 @@ public class NoticiasActivity extends _SuperActivity implements View.OnCreateCon
             ImageView imageViewConsultaVazia = this.findViewById(R.id.imgConsultaVazia);
             recyclerView = this.findViewById(R.id.recycleNoticia);
             List<Noticia> viewList;
+            bundle = getIntent().getBundleExtra(ConstantHelper.objBundle);
 
             if (keep)
                 noticiaList = viewList = (List<Noticia>) list;
@@ -184,8 +187,10 @@ public class NoticiasActivity extends _SuperActivity implements View.OnCreateCon
 
                 String showGesture = PrefHelper.getString(superContext, PrefHelper.PreferenciaNoticia);
 
-                if ( (showGesture==null || showGesture.isEmpty()) )
+                if (bundle==null  && (showGesture==null || showGesture.isEmpty()) )
                       ShowGestureIcon();
+                else if(bundle!=null && !bundle.getString("Origin").contains("Chart"))
+                     ShowGestureIcon();
 
             } else {
                 recyclerView.setVisibility(View.GONE);
@@ -199,18 +204,20 @@ public class NoticiasActivity extends _SuperActivity implements View.OnCreateCon
 
     private void ShowGestureIcon(){
         try{
-        SpannableStringBuilder builder = new SpannableStringBuilder();
-        builder.append(" ").setSpan(new ImageSpan(this, R.drawable.swipe), builder.length()-1 , builder.length(), 0);
-        builder.append("  ").append("Deslize a tela esquerda!");
-        Snackbar.make(recyclerView, builder, Snackbar.LENGTH_LONG).setAction("OK", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PrefHelper.setString(superContext, PrefHelper.PreferenciaNoticia,"S");
-            }
-        }).show();
-    } catch (Exception e) {
-        TrackHelper.WriteError(this, "Execute Noticias", e.getMessage());
-    }
+            SpannableStringBuilder builder = new SpannableStringBuilder();
+            builder.append(" ").setSpan(new ImageSpan(this, R.drawable.swipe), builder.length()-1 , builder.length(), 0);
+            builder.append("  ").append("Deslize a tela esquerda!");
+            Snackbar.make(recyclerView, builder, Snackbar.LENGTH_LONG)
+            .setAction("Ocultar", new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    PrefHelper.setString(superContext, PrefHelper.PreferenciaNoticia,"S");
+                }
+            }).show();
+
+        } catch (Exception e) {
+            TrackHelper.WriteError(this, "Execute Noticias", e.getMessage());
+        }
     }
 
     //endregion

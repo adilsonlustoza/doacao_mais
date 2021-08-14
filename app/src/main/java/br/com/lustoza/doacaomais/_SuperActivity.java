@@ -7,11 +7,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
@@ -19,6 +21,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.TelephonyManager;
 import android.transition.Slide;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -38,6 +41,8 @@ import com.facebook.login.LoginManager;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -437,12 +442,12 @@ public class _SuperActivity extends AppCompatActivity implements NavigationView.
             } else if (command == EnumCommand.NetWorkEnableWiFi) {
                 intent = new Intent();
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.setAction(Settings.ACTION_WIRELESS_SETTINGS);
+                intent.setAction(Settings.ACTION_WIFI_SETTINGS);
                 startActivity(intent);
             } else if (command == EnumCommand.NetWorkEnabledMobile) {
                 intent = new Intent();
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.setAction(Settings.ACTION_DATA_ROAMING_SETTINGS);
+                intent.setAction(Settings.ACTION_WIRELESS_SETTINGS);
                 startActivity(intent);
 
             } else if (command == EnumCommand.Localization) {
@@ -467,6 +472,27 @@ public class _SuperActivity extends AppCompatActivity implements NavigationView.
         _simpleDialogFragmentHelper.show(fragmentManager, "fragment_dialog_simple");
 
     }
+
+    /*Changing mobile data state -  True to turn it ON*/
+    private void setMobileDataState(boolean mobileDataEnabled) {
+
+        try {
+            final ConnectivityManager conman = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+            final Class<?> conmanClass = Class.forName(conman.getClass().getName());
+            final Field iConnectivityManagerField = conmanClass.getDeclaredField("mService");
+            iConnectivityManagerField.setAccessible(true);
+            final Object iConnectivityManager = iConnectivityManagerField.get(conman);
+            final Class<?> iConnectivityManagerClass = Class.forName(iConnectivityManager.getClass().getName());
+            final Method setMobileDataEnabledMethod = iConnectivityManagerClass.getDeclaredMethod("setMobileDataEnabled", Boolean.TYPE);
+            setMobileDataEnabledMethod.setAccessible(true);
+            setMobileDataEnabledMethod.invoke(iConnectivityManager, mobileDataEnabled);
+        }
+        catch (Exception e) {
+            TrackHelper.WriteError(this, "setMobileDataState", e.getMessage());
+        }
+    }
+
+
 
     @Override
     public void onStart() {

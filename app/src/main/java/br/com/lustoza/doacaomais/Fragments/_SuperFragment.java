@@ -227,6 +227,7 @@ public class _SuperFragment extends Fragment {
                         noticiaGenericParcelableHelper = new GenericParcelableHelper<>(noticia);
                         bundle = new Bundle();
                         bundle.putParcelable(ConstantHelper.objNoticia, noticiaGenericParcelableHelper);
+                        bundle.putString("Origin","Chart");
                         intent.putExtra(ConstantHelper.objBundle, bundle);
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
