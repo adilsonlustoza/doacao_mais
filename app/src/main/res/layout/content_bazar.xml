@@ -28,7 +28,8 @@
             android:layout_alignParentTop="true"
             android:overScrollMode="ifContentScrolls"
             android:verticalScrollbarPosition="right"
-            tools:targetApi="LOLLIPOP"
+            android:scrollbars="vertical"
+            android:layoutAnimation="@anim/layout_animation_fall_down"
 
             />
 

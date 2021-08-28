@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.lustoza.doacaomais.Adapter.NoticiaAdapter;
+import br.com.lustoza.doacaomais.Api.CirclePagerIndicatorDecoration;
 import br.com.lustoza.doacaomais.Domain.Noticia;
 import br.com.lustoza.doacaomais.Helper.ConstantHelper;
 import br.com.lustoza.doacaomais.Helper.GenericParcelableHelper;
@@ -170,6 +171,9 @@ public class NoticiasActivity extends _SuperActivity implements View.OnCreateCon
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
                 recyclerView.setNestedScrollingEnabled(true);
                 recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+               if(viewList.size()>1)
+                 recyclerView.addItemDecoration(new CirclePagerIndicatorDecoration());
+
                 recyclerView.setAdapter(adapter);
                 imageViewConsultaVazia.setVisibility(View.GONE);
 
@@ -185,12 +189,7 @@ public class NoticiasActivity extends _SuperActivity implements View.OnCreateCon
                     }
                 });
 
-                String showGesture = PrefHelper.getString(superContext, PrefHelper.PreferenciaNoticia);
 
-                if (bundle==null  && (showGesture==null || showGesture.isEmpty()) )
-                      ShowGestureIcon();
-                else if(bundle!=null && !bundle.getString("Origin").contains("Chart"))
-                     ShowGestureIcon();
 
             } else {
                 recyclerView.setVisibility(View.GONE);
@@ -202,23 +201,7 @@ public class NoticiasActivity extends _SuperActivity implements View.OnCreateCon
         }
     }
 
-    private void ShowGestureIcon(){
-        try{
-            SpannableStringBuilder builder = new SpannableStringBuilder();
-            builder.append(" ").setSpan(new ImageSpan(this, R.drawable.swipe), builder.length()-1 , builder.length(), 0);
-            builder.append("  ").append("Deslize a tela esquerda!");
-            Snackbar.make(recyclerView, builder, Snackbar.LENGTH_LONG)
-            .setAction("Ocultar", new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    PrefHelper.setString(superContext, PrefHelper.PreferenciaNoticia,"S");
-                }
-            }).show();
 
-        } catch (Exception e) {
-            TrackHelper.WriteError(this, "Execute Noticias", e.getMessage());
-        }
-    }
 
     //endregion
 

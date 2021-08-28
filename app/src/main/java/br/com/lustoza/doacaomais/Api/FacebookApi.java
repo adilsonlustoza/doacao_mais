@@ -23,7 +23,7 @@ public class FacebookApi {
 
     public FacebookUser GetProfilePicture() {
         Bundle params = new Bundle();
-        params.putString("fields", "id,email,gender,cover,picture.type(large),first_name,last_name,age_range,link,locale");
+        params.putString("fields","id,email,cover,picture.type(large),first_name,last_name");
 
         facebookUser = new FacebookUser();
 
@@ -41,9 +41,6 @@ public class FacebookApi {
                                     facebookUser.setEmail(data.getString("email"));
                                     facebookUser.setName(data.getString("first_name"));
                                     facebookUser.setLastName(data.getString("last_name"));
-                                    facebookUser.setAge_Range(data.getJSONObject("age_range").getInt("min"));
-                                    facebookUser.setLink(data.getString("link"));
-                                    facebookUser.setLocale(data.getString("locale"));
 
                                 }
                             } catch (Exception e) {

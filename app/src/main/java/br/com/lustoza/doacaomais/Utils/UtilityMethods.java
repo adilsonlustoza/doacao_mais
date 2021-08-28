@@ -42,7 +42,8 @@ public class UtilityMethods extends Application {
         String dateString = null;
 
         try {
-            dateString = formatter.format(date);
+            if(date!=null)
+                dateString = formatter.format(date);
         } catch (Exception e) {
             TrackHelper.WriteError(UtilityMethods.class, "ParseDateToString ", e.getMessage());
         }

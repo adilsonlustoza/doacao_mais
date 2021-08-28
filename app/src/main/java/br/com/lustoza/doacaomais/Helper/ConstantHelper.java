@@ -12,7 +12,7 @@ public class ConstantHelper {
     public static final String _urlPagSeguro = UtilityMethods.GetProperties("urlPagSeguro");
     public static final String _urlPayPal = UtilityMethods.GetProperties("urlPayPal");
     public static final String _urlPolitica = UtilityMethods.GetProperties("urlPolitica");
-    public static final String urlWebApiListAllCampanhas = servidorApi.concat(UtilityMethods.GetProperties("WebApiListAllCampanha"));
+    public static final String urlWebApiListAllCampanhas = servidorApi.concat(UtilityMethods.GetProperties("urlWebApiListAllCampanha"));
     public static final String fileListAllCampanhas = "fileListAllBoletim.json";
     public static final String urlWebApiListarConteudoContasPorCaccc = servidorApi.concat(UtilityMethods.GetProperties("urlWebApiListarConteudoContasPorCaccc"));
     public static final String fileListarConteudoContasPorCaccc = "fileListarConteudoContasPorCaccc.json";

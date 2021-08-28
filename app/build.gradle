@@ -23,9 +23,9 @@ android {
     defaultConfig {
         applicationId "br.com.lustoza.doacaomais"
         minSdkVersion 17
-        targetSdkVersion 29
-        versionCode 18
-        versionName "1.7.2"
+        targetSdkVersion 30
+        versionCode 20
+        versionName "1.7.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         signingConfig signingConfigs.release
@@ -82,6 +82,7 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'me.tatarka.support:jobscheduler:0.1.1'
     implementation 'org.sufficientlysecure:html-textview:3.5'
+
 
     //------------------------------------------Lombok----------------------------------------------
     compileOnly 'org.projectlombok:lombok:1.18.20'

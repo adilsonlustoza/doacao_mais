@@ -31,6 +31,7 @@
             android:listSelector="@android:color/transparent"
             android:scrollbarStyle="outsideOverlay"
             android:scrollbars="vertical"
+            android:layoutAnimation="@anim/layout_animation_fall_down"
 
             />
     </android.support.v4.widget.SwipeRefreshLayout>
