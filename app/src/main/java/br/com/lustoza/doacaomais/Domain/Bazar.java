@@ -2,38 +2,90 @@ package br.com.lustoza.doacaomais.Domain;
 
 import br.com.lustoza.doacaomais.Domain.ObjectValue.Endereco;
 import br.com.lustoza.doacaomais.Domain.ObjectValue.MasterDomain;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 
 public class Bazar extends MasterDomain {
 
     public static String TAG = "Bazar";
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
     private String Nome;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
     private String Description;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
     private String Informacao;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+
+    public String getNome() {
+        return Nome;
+    }
+
+    public void setNome(String nome) {
+        Nome = nome;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public String getInformacao() {
+        return Informacao;
+    }
+
+    public void setInformacao(String informacao) {
+        Informacao = informacao;
+    }
+
+    public br.com.lustoza.doacaomais.Domain.ObjectValue.Endereco getEndereco() {
+        return Endereco;
+    }
+
+    public void setEndereco(br.com.lustoza.doacaomais.Domain.ObjectValue.Endereco endereco) {
+        Endereco = endereco;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public String getTelefone() {
+        return Telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        Telefone = telefone;
+    }
+
+    public String getUrlImagem() {
+        return UrlImagem;
+    }
+
+    public void setUrlImagem(String urlImagem) {
+        UrlImagem = urlImagem;
+    }
+
+    public float getCacccId() {
+        return CacccId;
+    }
+
+    public void setCacccId(float cacccId) {
+        CacccId = cacccId;
+    }
+
+    public String getCaccc() {
+        return Caccc;
+    }
+
+    public void setCaccc(String caccc) {
+        Caccc = caccc;
+    }
+
     private Endereco Endereco;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
     private String Email = null;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
     private String Telefone = null;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
     private String UrlImagem;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
     private float CacccId;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
     private String Caccc = null;
 }

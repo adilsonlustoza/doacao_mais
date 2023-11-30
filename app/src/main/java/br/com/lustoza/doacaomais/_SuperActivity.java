@@ -11,19 +11,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.transition.Slide;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -31,10 +24,19 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+
 import com.facebook.AccessToken;
 import com.facebook.FacebookSdk;
 import com.facebook.LoggingBehavior;
 import com.facebook.login.LoginManager;
+import com.google.android.material.navigation.NavigationView;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -101,7 +103,7 @@ public class _SuperActivity extends AppCompatActivity implements NavigationView.
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             //Transition
-            getWindow().requestFeature(android.view.Window.FEATURE_CONTENT_TRANSITIONS);
+            getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
             Slide ts = new Slide(); //Explode();
             ts.setStartDelay(0);
             ts.setDuration(500);
@@ -120,7 +122,9 @@ public class _SuperActivity extends AppCompatActivity implements NavigationView.
         //Global Actitivity, Context, View
         activity = this;
         superContext = this;
-        globalView = toolbar;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            globalView = toolbar;
+        }
         cacccUtilApplication = (UtilApplication<Caccc>) getApplicationContext();
 
     }
@@ -143,7 +147,7 @@ public class _SuperActivity extends AppCompatActivity implements NavigationView.
     protected void ConfigureToolbarSuporte() {
         try {
             toolbar = findViewById(R.id.toolbar);
-            setSupportActionBar(toolbar);
+           // setSupportActionBar(toolbar);
             Objects.requireNonNull(getSupportActionBar()).setTitle("");
         } catch (Exception e) {
             TrackHelper.WriteError(this, "ConfigureToolBar", e.getMessage());
@@ -154,7 +158,7 @@ public class _SuperActivity extends AppCompatActivity implements NavigationView.
     protected void ConfigureToolbar() {
         try {
             toolbar = this.findViewById(R.id.toolbar);
-            setSupportActionBar(toolbar);
+           // setSupportActionBar(toolbar);
             Objects.requireNonNull(getSupportActionBar()).setLogo(R.mipmap.ic_launcher);
             getSupportActionBar().setTitle(ConstantHelper.AppName);
             getSupportActionBar().setSubtitle(ConstantHelper.ToolbarSubTitleSuper);
@@ -168,7 +172,7 @@ public class _SuperActivity extends AppCompatActivity implements NavigationView.
         try {
 
             toolbar = this.findViewById(R.id.toolbar);
-            setSupportActionBar(toolbar);
+          //  setSupportActionBar(toolbar);
             Objects.requireNonNull(getSupportActionBar()).setLogo(R.mipmap.ic_launcher);
             getSupportActionBar().setTitle(ConstantHelper.AppName);
             getSupportActionBar().setSubtitle(subTitle);
@@ -518,6 +522,7 @@ public class _SuperActivity extends AppCompatActivity implements NavigationView.
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NotNull String[] permissions, @NotNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (
                 (Arrays.asList(permissions).contains("android.permission.FINE_LOCATION") && grantResults[0] != PackageManager.PERMISSION_GRANTED) &&

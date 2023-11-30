@@ -41,7 +41,7 @@ public class FacebookApi {
                                     facebookUser.setEmail(data.getString("email"));
                                     facebookUser.setName(data.getString("first_name"));
                                     facebookUser.setLastName(data.getString("last_name"));
-                                    facebookUser.setAge_Range(data.getJSONObject("age_range").getInt("min"));
+                                 //   facebookUser.setAge_Range(data.getJSONObject("age_range").getInt("min"));
                                     facebookUser.setLink(data.getString("link"));
                                     facebookUser.setLocale(data.getString("locale"));
 

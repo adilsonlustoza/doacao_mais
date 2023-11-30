@@ -3,14 +3,15 @@ package br.com.lustoza.doacaomais;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -26,7 +27,7 @@ public class TabsCacccActivity extends _SuperActivity {
 
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private AppBarLayout appBarLayout;
-    private ViewPager viewPager;
+    private ViewPager2 viewPager;
     private Bundle bundle;
     private ImageView imageViewCentro;
     private String titulo;
@@ -76,7 +77,7 @@ public class TabsCacccActivity extends _SuperActivity {
             viewPager = this.findViewById(R.id.pager);
             TabFragmentAdapterContainer tabCacccAdapter = new TabFragmentAdapterContainer(getSupportFragmentManager(), tabLayout.getTabCount(), bundle);
             viewPager.setAdapter(tabCacccAdapter);
-            viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+            viewPager.addOnLayoutChangeListener((View.OnLayoutChangeListener) new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
             tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
                 @Override

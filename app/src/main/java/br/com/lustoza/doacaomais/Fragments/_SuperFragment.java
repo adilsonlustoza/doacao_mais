@@ -1,22 +1,19 @@
 package br.com.lustoza.doacaomais.Fragments;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -29,10 +26,7 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
@@ -46,20 +40,16 @@ import br.com.lustoza.doacaomais.Helper.ConstantHelper;
 import br.com.lustoza.doacaomais.Helper.GenericParcelableHelper;
 import br.com.lustoza.doacaomais.Helper.HttpHelper;
 import br.com.lustoza.doacaomais.Helper.TrackHelper;
-import br.com.lustoza.doacaomais.MapsActivity;
 import br.com.lustoza.doacaomais.NoticiasActivity;
 import br.com.lustoza.doacaomais.R;
 import br.com.lustoza.doacaomais.Services.Rede.NetWorkService;
-import br.com.lustoza.doacaomais.Utils.HandleFile;
 
 public class _SuperFragment extends Fragment {
 
-    protected int permissionRequest;
     protected Bundle bundleArguments;
     protected int idCentro;
     protected String eMailCentro;
     protected Intent intent;
-    protected HandleFile handleFile;
     protected ProgressBar progressBar;
     private GenericParcelableHelper<Noticia> noticiaGenericParcelableHelper;
     private Bundle bundle;
@@ -168,7 +158,7 @@ public class _SuperFragment extends Fragment {
             } else
                 lstEstatistico = estatisticoGenericParcelableHelper.getValue();
 
-            PieChart pieChart = Objects.requireNonNull(getView()).findViewById(R.id.pieChart);
+            PieChart pieChart = requireView().findViewById(R.id.pieChart);
 
             pieChart.setExtraOffsets(5, 10, 5, 15);
             pieChart.setDragDecelerationFrictionCoef(0.85f);

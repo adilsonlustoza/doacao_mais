@@ -8,38 +8,125 @@ import lombok.Setter;
 public class ContaBancaria extends MasterDomain {
 
     public static String TAG = "ContaBancaria";
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private int ContaBancariaId;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String NumeroBanco = null;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String NomeBanco;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+
+    public int getContaBancariaId() {
+        return ContaBancariaId;
+    }
+
+    public void setContaBancariaId(int contaBancariaId) {
+        ContaBancariaId = contaBancariaId;
+    }
+
+    public String getNumeroBanco() {
+        return NumeroBanco;
+    }
+
+    public void setNumeroBanco(String numeroBanco) {
+        NumeroBanco = numeroBanco;
+    }
+
+    public String getNomeBanco() {
+        return NomeBanco;
+    }
+
+    public void setNomeBanco(String nomeBanco) {
+        NomeBanco = nomeBanco;
+    }
+
+    public String getAgencia() {
+        return Agencia;
+    }
+
+    public void setAgencia(String agencia) {
+        Agencia = agencia;
+    }
+
+    public String getConta() {
+        return Conta;
+    }
+
+    public void setConta(String conta) {
+        Conta = conta;
+    }
+
+    public String getBeneficiario() {
+        return Beneficiario;
+    }
+
+    public void setBeneficiario(String beneficiario) {
+        Beneficiario = beneficiario;
+    }
+
+    public String getUrlImagem() {
+        return UrlImagem;
+    }
+
+    public void setUrlImagem(String urlImagem) {
+        UrlImagem = urlImagem;
+    }
+
+    public float getCacccId() {
+        return CacccId;
+    }
+
+    public void setCacccId(float cacccId) {
+        CacccId = cacccId;
+    }
+
+    public String getCaccc() {
+        return Caccc;
+    }
+
+    public void setCaccc(String caccc) {
+        Caccc = caccc;
+    }
+
+    public String getDataCadastro() {
+        return DataCadastro;
+    }
+
+    public void setDataCadastro(String dataCadastro) {
+        DataCadastro = dataCadastro;
+    }
+
+    public String getIdentificadorUnico() {
+        return IdentificadorUnico;
+    }
+
+    public void setIdentificadorUnico(String identificadorUnico) {
+        IdentificadorUnico = identificadorUnico;
+    }
+
     private String Agencia;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Conta;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Beneficiario;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String UrlImagem = null;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private float CacccId;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Caccc = null;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String DataCadastro;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String IdentificadorUnico;
 
 }

@@ -3,42 +3,118 @@ package br.com.lustoza.doacaomais.Domain;
 import java.util.Date;
 
 import br.com.lustoza.doacaomais.Domain.ObjectValue.MasterDomain;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 
 public class Noticia extends MasterDomain {
 
     public static String TAG = "Noticia";
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private int NoticiaId;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+
+    public int getNoticiaId() {
+        return NoticiaId;
+    }
+
+    public void setNoticiaId(int noticiaId) {
+        NoticiaId = noticiaId;
+    }
+
+    public String getTitulo() {
+        return Titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        Titulo = titulo;
+    }
+
+    public String getSubTitulo() {
+        return SubTitulo;
+    }
+
+    public void setSubTitulo(String subTitulo) {
+        SubTitulo = subTitulo;
+    }
+
+    public String getConteudo() {
+        return Conteudo;
+    }
+
+    public void setConteudo(String conteudo) {
+        Conteudo = conteudo;
+    }
+
+    public String getUrlImagem() {
+        return UrlImagem;
+    }
+
+    public void setUrlImagem(String urlImagem) {
+        UrlImagem = urlImagem;
+    }
+
+    public Date getDataPublicacao() {
+        return DataPublicacao;
+    }
+
+    public void setDataPublicacao(Date dataPublicacao) {
+        DataPublicacao = dataPublicacao;
+    }
+
+    public int getCacccId() {
+        return CacccId;
+    }
+
+    public void setCacccId(int cacccId) {
+        CacccId = cacccId;
+    }
+
+    public String getCaccc() {
+        return Caccc;
+    }
+
+    public void setCaccc(String caccc) {
+        Caccc = caccc;
+    }
+
+    public String getDataCadastro() {
+        return DataCadastro;
+    }
+
+    public void setDataCadastro(String dataCadastro) {
+        DataCadastro = dataCadastro;
+    }
+
+    public String getIdentificadorUnico() {
+        return IdentificadorUnico;
+    }
+
+    public void setIdentificadorUnico(String identificadorUnico) {
+        IdentificadorUnico = identificadorUnico;
+    }
+
     private String Titulo;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String SubTitulo;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Conteudo;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String UrlImagem;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private Date DataPublicacao = null;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private int CacccId;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Caccc = null;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String DataCadastro;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String IdentificadorUnico;
 
 }

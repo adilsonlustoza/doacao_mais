@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="br.com.lustoza.doacaomais">
+    >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- To auto-complete the email text field in the login form with the user's emails -->
@@ -14,11 +14,11 @@
      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
 
     <!-- To access Google+ APIs and GPS: -->
-    <uses-permission android:name="android.permission.ACCESS_GPS" />
-    <uses-permission android:name="android.permission.ACCESS_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.ACCESS_GPS"  android:exported="true" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION"  android:exported="true" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" android:exported="true" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" android:exported="true" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"  android:exported="true"/>
 
     <!-- To access Google+ APIs: -->
     <uses-permission android:name="br.com.lustoza.doacaomais.permission.MAPS_RECEIVE" />
@@ -79,7 +79,8 @@
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -114,11 +115,11 @@
         <activity
             android:name=".NoticiasActivity"
             android:label="@string/title_activity_welcome"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" android:exported="true" />
         <activity
             android:name=".BazarActivity"
             android:label="@string/title_activity_welcome"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" android:exported="true" />
         <activity
             android:name=".CacccActivity"
             android:label="@string/title_activity_welcome"

@@ -12,47 +12,158 @@ import lombok.Setter;
 public class Campanha extends MasterDomain {
 
     public static String TAG = "Campanha";
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private int CampanhaId;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Nome;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Descricao;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+
+    public int getCampanhaId() {
+        return CampanhaId;
+    }
+
+    public void setCampanhaId(int campanhaId) {
+        CampanhaId = campanhaId;
+    }
+
+    public String getNome() {
+        return Nome;
+    }
+
+    public void setNome(String nome) {
+        Nome = nome;
+    }
+
+    public String getDescricao() {
+        return Descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        Descricao = descricao;
+    }
+
+    public String getLinkWeb() {
+        return LinkWeb;
+    }
+
+    public void setLinkWeb(String linkWeb) {
+        LinkWeb = linkWeb;
+    }
+
+    public Date getDataInicial() {
+        return DataInicial;
+    }
+
+    public void setDataInicial(Date dataInicial) {
+        DataInicial = dataInicial;
+    }
+
+    public Date getDataFinal() {
+        return DataFinal;
+    }
+
+    public void setDataFinal(Date dataFinal) {
+        DataFinal = dataFinal;
+    }
+
+    public String getUrlImagem() {
+        return UrlImagem;
+    }
+
+    public void setUrlImagem(String urlImagem) {
+        UrlImagem = urlImagem;
+    }
+
+    public boolean isAtiva() {
+        return Ativa;
+    }
+
+    public void setAtiva(boolean ativa) {
+        Ativa = ativa;
+    }
+
+    public int getTipoCampanha() {
+        return TipoCampanha;
+    }
+
+    public void setTipoCampanha(int tipoCampanha) {
+        TipoCampanha = tipoCampanha;
+    }
+
+    public int getCacccId() {
+        return CacccId;
+    }
+
+    public void setCacccId(int cacccId) {
+        CacccId = cacccId;
+    }
+
+    public String getCaccc() {
+        return Caccc;
+    }
+
+    public void setCaccc(String caccc) {
+        Caccc = caccc;
+    }
+
+    public List<Notificacao> getNotificacoes() {
+        return Notificacoes;
+    }
+
+    public void setNotificacoes(List<Notificacao> notificacoes) {
+        Notificacoes = notificacoes;
+    }
+
+    public Date getDataCadastro() {
+        return DataCadastro;
+    }
+
+    public void setDataCadastro(Date dataCadastro) {
+        DataCadastro = dataCadastro;
+    }
+
+    public String getIdentificadorUnico() {
+        return IdentificadorUnico;
+    }
+
+    public void setIdentificadorUnico(String identificadorUnico) {
+        IdentificadorUnico = identificadorUnico;
+    }
+
     private String LinkWeb = null;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private Date DataInicial = null;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private Date DataFinal = null;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String UrlImagem;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private boolean Ativa;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private int TipoCampanha;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private int CacccId;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Caccc = null;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private List<Notificacao> Notificacoes;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private Date DataCadastro;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String IdentificadorUnico;
 
     public Campanha() {

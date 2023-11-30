@@ -5,9 +5,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+
 import android.text.TextUtils;
 import android.text.util.Linkify;
 import android.view.Display;
@@ -18,11 +16,16 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 import org.sufficientlysecure.htmltextview.HtmlResImageGetter;
 import org.sufficientlysecure.htmltextview.HtmlTextView;
+
 
 import java.util.List;
 
@@ -51,7 +54,8 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.NoticiaV
     @NotNull
     @Override
     public NoticiaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        @SuppressLint("InflateParams") View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycleview_noticia, null);
+        @SuppressLint("InflateParams")
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycleview_noticia, null);
         view.setLayoutParams(new RecyclerView.LayoutParams(parent.getWidth(), ViewGroup.LayoutParams.WRAP_CONTENT));
         return new NoticiaViewHolder(view);
 
@@ -59,6 +63,7 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.NoticiaV
 
     @Override
     public void onBindViewHolder(final NoticiaViewHolder holder, int position) {
+
 
         context = holder.imageView.getContext();
         noticia = noticiaList.get(position);
@@ -74,7 +79,7 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.NoticiaV
         else
             holder.textViewData.setText(HtmlHelper.fromHtml("Data não divulgada"));
 
-        holder.textViewDescription.setHtml(noticia.getConteudo(), new HtmlResImageGetter(holder.textViewDescription));
+        holder.textViewDescription.setHtml(noticia.getConteudo(), new HtmlResImageGetter(holder.textViewDescription.getContext()));
         Linkify.addLinks(holder.textViewDescription, Linkify.ALL);
 
         View.OnClickListener listener = v -> onItemClickListener.onItemClick(noticia);

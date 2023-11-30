@@ -1,12 +1,14 @@
 package br.com.lustoza.doacaomais.Adapter;
 
 import android.annotation.SuppressLint;
-import android.support.v7.widget.RecyclerView;
+
 import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 import org.sufficientlysecure.htmltextview.HtmlResImageGetter;
@@ -43,7 +45,7 @@ public class CampanhaAdapter extends RecyclerView.Adapter<CampanhaAdapter.Campan
         Campanha campanha = campanhaList.get(position);
         holder.textViewTitle.setText(HtmlHelper.fromHtml(String.format("%s ", campanha.getNome())));
         holder.textViewTipoCampanha.setText(HtmlHelper.fromHtml(String.format(" %s ", UtilityMethods.getTipoCampanha(campanha.getTipoCampanha()))));
-        holder.textViewContent.setHtml(campanha.getDescricao(), new HtmlResImageGetter(holder.textViewContent));
+        holder.textViewContent.setHtml(campanha.getDescricao(), new HtmlResImageGetter(holder.textViewContent.getContext()));
         String dataVigencia = "Vigência não informada.";
         if (campanha.getDataInicial() != null && campanha.getDataFinal() != null)
             dataVigencia = "Vigência de  : " + UtilityMethods.ParseDateToString(campanha.getDataInicial()) + "  a " + UtilityMethods.ParseDateToString(campanha.getDataFinal());

@@ -1,14 +1,13 @@
 package br.com.lustoza.doacaomais.Helper;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
+
+import androidx.fragment.app.DialogFragment;
 
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Objects;
 
 import br.com.lustoza.doacaomais.Interfaces.OnCustomDialogClickListener;
 import br.com.lustoza.doacaomais.Utils.EnumCommand;
@@ -52,9 +51,9 @@ public class SimpleDialogFragmentHelper extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
-        String title = Objects.requireNonNull(getArguments()).getString("title");
+        String title = requireArguments().getString("title");
         String message = getArguments().getString("message");
-        AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
         builder.setTitle(title);
         builder.setMessage(message);
         builder.setNegativeButton("Não", (dialog, which) -> {

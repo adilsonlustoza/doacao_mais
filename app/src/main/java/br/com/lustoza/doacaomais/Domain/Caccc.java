@@ -13,62 +13,214 @@ import lombok.Setter;
 public class Caccc extends MasterDomain {
 
     public static String TAG = "Caccc";
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+
     private int CacccId;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Nome;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Description;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Email;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String EmailPagSeguro = null;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String EmailPayPal = null;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String UrlImagemPin = null;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String UrlImagem;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Telefone;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Celular;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private boolean Autorizado;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private int TipoDoacao;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private TpDoacao tpDoacao;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private Endereco Endereco;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private Collection<Conteudo> Conteudos;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private Collection<Bazar> Bazares;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private Collection<Campanha> Campanhas;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private Collection<Noticia> Noticias;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+
+
+    public int getCacccId() {
+        return CacccId;
+    }
+
+    public void setCacccId(int cacccId) {
+        CacccId = cacccId;
+    }
+
+    public String getNome() {
+        return Nome;
+    }
+
+    public void setNome(String nome) {
+        Nome = nome;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public String getEmailPagSeguro() {
+        return EmailPagSeguro;
+    }
+
+    public void setEmailPagSeguro(String emailPagSeguro) {
+        EmailPagSeguro = emailPagSeguro;
+    }
+
+    public String getEmailPayPal() {
+        return EmailPayPal;
+    }
+
+    public void setEmailPayPal(String emailPayPal) {
+        EmailPayPal = emailPayPal;
+    }
+
+    public String getUrlImagemPin() {
+        return UrlImagemPin;
+    }
+
+    public void setUrlImagemPin(String urlImagemPin) {
+        UrlImagemPin = urlImagemPin;
+    }
+
+    public String getUrlImagem() {
+        return UrlImagem;
+    }
+
+    public void setUrlImagem(String urlImagem) {
+        UrlImagem = urlImagem;
+    }
+
+    public String getTelefone() {
+        return Telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        Telefone = telefone;
+    }
+
+    public String getCelular() {
+        return Celular;
+    }
+
+    public void setCelular(String celular) {
+        Celular = celular;
+    }
+
+    public boolean isAutorizado() {
+        return Autorizado;
+    }
+
+    public void setAutorizado(boolean autorizado) {
+        Autorizado = autorizado;
+    }
+
+    public int getTipoDoacao() {
+        return TipoDoacao;
+    }
+
+    public void setTipoDoacao(int tipoDoacao) {
+        TipoDoacao = tipoDoacao;
+    }
+
+    public TpDoacao getTpDoacao() {
+        return tpDoacao;
+    }
+
+    public void setTpDoacao(TpDoacao tpDoacao) {
+        this.tpDoacao = tpDoacao;
+    }
+
+    public br.com.lustoza.doacaomais.Domain.ObjectValue.Endereco getEndereco() {
+        return Endereco;
+    }
+
+    public void setEndereco(br.com.lustoza.doacaomais.Domain.ObjectValue.Endereco endereco) {
+        Endereco = endereco;
+    }
+
+    public Collection<Conteudo> getConteudos() {
+        return Conteudos;
+    }
+
+    public void setConteudos(Collection<Conteudo> conteudos) {
+        Conteudos = conteudos;
+    }
+
+    public Collection<Bazar> getBazares() {
+        return Bazares;
+    }
+
+    public void setBazares(Collection<Bazar> bazares) {
+        Bazares = bazares;
+    }
+
+    public Collection<Campanha> getCampanhas() {
+        return Campanhas;
+    }
+
+    public void setCampanhas(Collection<Campanha> campanhas) {
+        Campanhas = campanhas;
+    }
+
+    public Collection<Noticia> getNoticias() {
+        return Noticias;
+    }
+
+    public void setNoticias(Collection<Noticia> noticias) {
+        Noticias = noticias;
+    }
+
+    public Collection<ContaBancaria> getContasBancarias() {
+        return ContasBancarias;
+    }
+
+    public void setContasBancarias(Collection<ContaBancaria> contasBancarias) {
+        ContasBancarias = contasBancarias;
+    }
+
     private Collection<ContaBancaria> ContasBancarias;
 
     public Caccc() {

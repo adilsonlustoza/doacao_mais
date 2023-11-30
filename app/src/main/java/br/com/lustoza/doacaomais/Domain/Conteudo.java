@@ -10,31 +10,102 @@ import lombok.Setter;
 public class Conteudo extends MasterDomain {
 
     public static String TAG = "Conteudo";
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+
+    public int getConteudoId() {
+        return ConteudoId;
+    }
+
+    public void setConteudoId(int conteudoId) {
+        ConteudoId = conteudoId;
+    }
+
+    public String getTitulo() {
+        return Titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        Titulo = titulo;
+    }
+
+    public String getSubtitulo() {
+        return Subtitulo;
+    }
+
+    public void setSubtitulo(String subtitulo) {
+        Subtitulo = subtitulo;
+    }
+
+    public String getColuna() {
+        return Coluna;
+    }
+
+    public void setColuna(String coluna) {
+        Coluna = coluna;
+    }
+
+    public String getUrl() {
+        return Url;
+    }
+
+    public void setUrl(String url) {
+        Url = url;
+    }
+
+    public int getCacccId() {
+        return CacccId;
+    }
+
+    public void setCacccId(int cacccId) {
+        CacccId = cacccId;
+    }
+
+    public String getCaccc() {
+        return Caccc;
+    }
+
+    public void setCaccc(String caccc) {
+        Caccc = caccc;
+    }
+
+    public Date getDataCadastro() {
+        return DataCadastro;
+    }
+
+    public void setDataCadastro(Date dataCadastro) {
+        DataCadastro = dataCadastro;
+    }
+
+    public String getIdentificadorUnico() {
+        return IdentificadorUnico;
+    }
+
+    public void setIdentificadorUnico(String identificadorUnico) {
+        IdentificadorUnico = identificadorUnico;
+    }
+
     private int ConteudoId;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Titulo;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Subtitulo;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Coluna;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Url = null;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private int CacccId;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Caccc = null;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private Date DataCadastro;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String IdentificadorUnico;
 }

@@ -16,32 +16,103 @@ import lombok.Setter;
 public class Notificacao extends MasterDomain {
 
     public static String TAG = "Notificacao";
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private Caccc caccc;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private int NotificacaoId;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private boolean Ativa;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+
+    public Caccc getCaccc() {
+        return caccc;
+    }
+
+    public void setCaccc(Caccc caccc) {
+        this.caccc = caccc;
+    }
+
+    public int getNotificacaoId() {
+        return NotificacaoId;
+    }
+
+    public void setNotificacaoId(int notificacaoId) {
+        NotificacaoId = notificacaoId;
+    }
+
+    public boolean isAtiva() {
+        return Ativa;
+    }
+
+    public void setAtiva(boolean ativa) {
+        Ativa = ativa;
+    }
+
+    public Date getDataInicial() {
+        return DataInicial;
+    }
+
+    public void setDataInicial(Date dataInicial) {
+        DataInicial = dataInicial;
+    }
+
+    public Date getDataFinal() {
+        return DataFinal;
+    }
+
+    public void setDataFinal(Date dataFinal) {
+        DataFinal = dataFinal;
+    }
+
+    public String getTitulo() {
+        return Titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        Titulo = titulo;
+    }
+
+    public String getDescricao() {
+        return Descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        Descricao = descricao;
+    }
+
+    public String getConteudo() {
+        return Conteudo;
+    }
+
+    public void setConteudo(String conteudo) {
+        Conteudo = conteudo;
+    }
+
+    public Collection<Dispositivo> getDispositivos() {
+        return Dispositivos;
+    }
+
+    public void setDispositivos(Collection<Dispositivo> dispositivos) {
+        Dispositivos = dispositivos;
+    }
+
     private Date DataInicial;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private Date DataFinal;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Titulo;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Descricao;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private String Conteudo;
-    @Getter(AccessLevel.PUBLIC)
-    @Setter(AccessLevel.PUBLIC)
+    
+    
     private Collection<Dispositivo> Dispositivos;
 
     public Notificacao() {

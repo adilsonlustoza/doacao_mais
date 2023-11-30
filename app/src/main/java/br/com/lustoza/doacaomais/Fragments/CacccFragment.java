@@ -3,15 +3,15 @@ package br.com.lustoza.doacaomais.Fragments;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.widget.CardView;
+
 import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
+
+import androidx.core.widget.NestedScrollView;
 
 import org.jetbrains.annotations.NotNull;
 

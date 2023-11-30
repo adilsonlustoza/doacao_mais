@@ -2,8 +2,8 @@ package br.com.lustoza.doacaomais.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,12 +79,12 @@ public class BazarAdapter extends RecyclerView.Adapter<BazarAdapter.DoacaoViewHo
     }
 
     // Insert a new item to the RecyclerView on a predefined position
-    public void insert(int position, Bazar data) {
+   /* public void insert(int position, Bazar data) {
         bazarList.add(position, data);
         notifyItemInserted(position);
-    }
+    }*/
 
-    class DoacaoViewHolder extends RecyclerView.ViewHolder {
+    static class DoacaoViewHolder extends RecyclerView.ViewHolder {
 
         final ImageView imageView;
         final TextView textViewTitle;

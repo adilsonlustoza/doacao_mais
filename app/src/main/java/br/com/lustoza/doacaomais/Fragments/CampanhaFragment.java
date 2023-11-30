@@ -2,15 +2,16 @@ package br.com.lustoza.doacaomais.Fragments;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
+
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -60,7 +61,7 @@ public class CampanhaFragment extends _SuperFragment implements IOnLoadCallBack 
     private void Init(Bundle bundle) {
         try {
 
-            (Objects.requireNonNull(getActivity())).getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+            (requireActivity()).getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
             this.SwipeRefreshLayout();
 
@@ -88,7 +89,7 @@ public class CampanhaFragment extends _SuperFragment implements IOnLoadCallBack 
 
     private void CampanhasLoad(String url) {
 
-        this.progressBar = Objects.requireNonNull(getView()).findViewById(R.id.progress_bar);
+        this.progressBar = requireView().findViewById(R.id.progress_bar);
         this.progressBar.setVisibility(View.VISIBLE);
 
         if (genericParcelableHelper != null && genericParcelableHelper.getValue() != null && (genericParcelableHelper.getValue()).size() > 0)
@@ -107,7 +108,7 @@ public class CampanhaFragment extends _SuperFragment implements IOnLoadCallBack 
 
     private void SwipeRefreshLayout() {
         try {
-            this._swipeRefreshLayout = Objects.requireNonNull(getView()).findViewById(R.id.swipeToRefresh);
+            this._swipeRefreshLayout = requireView().findViewById(R.id.swipeToRefresh);
             this._swipeRefreshLayout.setOnRefreshListener(() -> new Handler().postDelayed(() -> _swipeRefreshLayout.setRefreshing(false), 1000));
         } catch (Exception e) {
             TrackHelper.WriteError(this, "SwipeRefreshLayout", e.getMessage());
@@ -123,7 +124,7 @@ public class CampanhaFragment extends _SuperFragment implements IOnLoadCallBack 
     @Override
     public void Execute(List<?> list, boolean keep) {
 
-        ImageView imageViewConsultaVazia = Objects.requireNonNull(getView()).findViewById(R.id.imgConsultaVazia);
+        ImageView imageViewConsultaVazia = requireView().findViewById(R.id.imgConsultaVazia);
         RecyclerView recyclerView = getView().findViewById(R.id.recycleCampanha);
         List<Campanha> viewList;
 
