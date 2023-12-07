@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:src="@drawable/consulta_vazia"
-    android:visibility="gone" />
+    android:visibility="gone"
+    android:importantForAccessibility="no" />
 
 

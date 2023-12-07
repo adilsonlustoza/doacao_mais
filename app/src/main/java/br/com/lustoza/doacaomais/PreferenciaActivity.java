@@ -1,13 +1,9 @@
 package br.com.lustoza.doacaomais;
-
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
-import android.support.annotation.RequiresApi;
-
 import br.com.lustoza.doacaomais.Helper.ConstantHelper;
 
-@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+
 public class PreferenciaActivity extends _SuperActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

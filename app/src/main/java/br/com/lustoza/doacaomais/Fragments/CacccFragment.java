@@ -3,7 +3,6 @@ package br.com.lustoza.doacaomais.Fragments;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-
 import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,11 +10,11 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.core.widget.NestedScrollView;
 
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Objects;
 
 import br.com.lustoza.doacaomais.Domain.Caccc;
 import br.com.lustoza.doacaomais.Domain.Conteudo;
@@ -39,7 +38,6 @@ public class CacccFragment extends _SuperFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRetainInstance(true);
 
     }
 
@@ -64,10 +62,10 @@ public class CacccFragment extends _SuperFragment {
 
     private void OnInit() {
 
-        (Objects.requireNonNull(getActivity())).getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        (requireActivity()).getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         bundleArguments = this.getArguments();
-        this.nestedScrollView = Objects.requireNonNull(getView()).findViewById(R.id.nestedScrollViewNoticias);
+        this.nestedScrollView = requireView().findViewById(R.id.nestedScrollViewNoticias);
         this.nestedScrollView.setOnClickListener(view -> onDonationPosition());
 
         if (bundleArguments != null && bundleArguments.getParcelable(ConstantHelper.objCaccc) != null)
@@ -95,7 +93,7 @@ public class CacccFragment extends _SuperFragment {
 
     private void CacccLoad(String url) {
         try {
-            this.progressBar = Objects.requireNonNull(getView()).findViewById(R.id.progress_bar);
+            this.progressBar = requireView().findViewById(R.id.progress_bar);
             this.progressBar.setVisibility(View.VISIBLE);
 
             caccc = (Caccc) new HttpHelper(getContext(), ConstantHelper.fileListarConteudoContasPorCaccc).RestDownloadObj(url, Caccc.class);//super.RestDownloadObj(url, Caccc.class, false);
@@ -139,7 +137,7 @@ public class CacccFragment extends _SuperFragment {
     private void FillView(Caccc caccc) {
         try {
 
-            TextView lblNomeCentro = Objects.requireNonNull(getView()).findViewById(R.id.lblNomeCentro);
+            TextView lblNomeCentro = requireView().findViewById(R.id.lblNomeCentro);
             TextView lblTelefoneCentro = getView().findViewById(R.id.lblTelefoneCentro);
             TextView lblEmailCentro = getView().findViewById(R.id.lblEmailCentro);
             TextView lblEnderecoCentro = getView().findViewById(R.id.lblEnderecoCentro);

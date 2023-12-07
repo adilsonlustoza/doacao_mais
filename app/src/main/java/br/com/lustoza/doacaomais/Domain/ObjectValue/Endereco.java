@@ -2,10 +2,6 @@ package br.com.lustoza.doacaomais.Domain.ObjectValue;
 
 import java.io.Serializable;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
-
 /**
  * Created by ubuntu on 2/12/17.
  */

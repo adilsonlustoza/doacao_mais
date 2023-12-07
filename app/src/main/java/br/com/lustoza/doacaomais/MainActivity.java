@@ -3,9 +3,10 @@ package br.com.lustoza.doacaomais;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.View;
+
+import androidx.fragment.app.FragmentTransaction;
 
 import com.facebook.AccessToken;
 
@@ -72,6 +73,7 @@ public class MainActivity extends _SuperActivity implements View.OnClickListener
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // Check which request we're responding to
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ConstantHelper.login) {
             // Make sure the request was successful
             if (resultCode == RESULT_OK) {

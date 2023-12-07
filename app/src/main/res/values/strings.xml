@@ -123,7 +123,6 @@
     <string name="pref_atualizar_title">Atualizar dados rede</string>
     <string name="pref_list_atualizar_dialog">Checar as atualizações a partir da rede a cada ?</string>
     <string name="pref_list_atualizar_summary">Verifica se a rede de dados ou wi-fi está ativa, para efetuar atualização de dados.</string>
-    <string name="image">Image</string>
     <string name="todo">Descricao da Imagem</string>
     <string name="mascote">mascote doacao mais</string>
     <string name="localizacao">Localização</string>
@@ -132,9 +131,8 @@
     <string name="NaoFoiPossivelValidarLocalizacao">Não foi possível validar a localização do seu endereço. Verifique a rede e os  dados de endereço.</string>
     <string name="IntegracaoPagSeguro">Integração PagSeguro</string>
     <string name="IntegracaoPayPal">Integração PayPal</string>
-    <string name="PayPalDoacao">As doações por cartão são efetuadas diretamente através da página do Pay Pal!</string>
-    <string name="PagSeguroDoacao">As doações por cartão são efetuadas diretamente através da página do PagSeguro!</string>
-    <string name="PagSeguroPayPalDoacao">As doações por cartão são efetuadas diretamente através da página do PagSeguro e Pay Pal!</string>
+    <string name="image" />
+    <string name="entre_com_o_logradouro">Entre com o logradouro</string>
 
 
 </resources>

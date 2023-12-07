@@ -1,8 +1,6 @@
 package br.com.lustoza.doacaomais;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -21,7 +19,7 @@ public class LoginActivity extends _SuperActivity implements ILogin.IViewLogin {
     private ProgressBar progressBar;
     private ILogin.IPresenterLogin presenterLogin;
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

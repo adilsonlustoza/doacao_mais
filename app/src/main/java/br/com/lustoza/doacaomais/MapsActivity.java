@@ -11,17 +11,18 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.text.util.Linkify;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -39,7 +40,6 @@ import com.google.android.gms.maps.model.Marker;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -63,10 +63,6 @@ public class MapsActivity extends _SuperActivity
         implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
-
-
-
-
     private int permissionRequest ;
     //Google Objects
     protected Location globalLocation;
@@ -97,6 +93,10 @@ public class MapsActivity extends _SuperActivity
     private LinearLayout ll;
     private String url;
     private GenericParcelableHelper<List<Caccc>> genericParcelableHelper;
+
+    public MapsActivity(int permissionRequest) {
+        this.permissionRequest = permissionRequest;
+    }
 
 
     @Override

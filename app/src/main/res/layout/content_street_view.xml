@@ -10,7 +10,7 @@
     tools:showIn="@layout/activity_street_view">
 
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map_street_view"
         android:name="com.google.android.gms.maps.StreetViewPanoramaFragment"
         android:layout_width="match_parent"

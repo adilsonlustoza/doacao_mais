@@ -3,8 +3,9 @@ package br.com.lustoza.doacaomais.Services.Job;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
+import androidx.annotation.Nullable;
 
 import java.util.Calendar;
 import java.util.Date;

@@ -2,19 +2,20 @@ package br.com.lustoza.doacaomais;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SearchView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,7 +66,7 @@ public class BazarActivity extends _SuperActivity implements IOnLoadCallBack {
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle savedInstanceState) {
+    protected void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putParcelable(Bazar.TAG, new GenericParcelableHelper<>(bazares));
     }
@@ -104,8 +105,7 @@ public class BazarActivity extends _SuperActivity implements IOnLoadCallBack {
             RecyclerView recyclerView = this.findViewById(R.id.recycleViewBazar);
             List<Bazar> viewList;
 
-            if (keep)
-                bazares = viewList = (List<Bazar>) list;
+            if (keep) bazares = viewList = (List<Bazar>) list;
             else
                 viewList = (List<Bazar>) list;
 
@@ -130,10 +130,7 @@ public class BazarActivity extends _SuperActivity implements IOnLoadCallBack {
                     bundle.putParcelable(ConstantHelper.objBazar, bazarGenericParcelableHelper);
                     intent.putExtra(ConstantHelper.objBundle, bundle);
 
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-                        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(activity).toBundle());
-                    else
-                        startActivity(intent);
+                    startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(activity).toBundle());
                 });
 
             } else {

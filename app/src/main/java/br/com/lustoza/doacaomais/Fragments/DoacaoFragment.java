@@ -4,16 +4,16 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
+import androidx.core.widget.NestedScrollView;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -27,7 +27,6 @@ import br.com.lustoza.doacaomais.Helper.GenericParcelableHelper;
 import br.com.lustoza.doacaomais.Helper.HtmlHelper;
 import br.com.lustoza.doacaomais.Helper.HttpHelper;
 import br.com.lustoza.doacaomais.Helper.TrackHelper;
-import br.com.lustoza.doacaomais.MapsActivity;
 import br.com.lustoza.doacaomais.R;
 import br.com.lustoza.doacaomais.WebViewActivity;
 
@@ -67,10 +66,10 @@ public class DoacaoFragment extends _SuperFragment {
 
     private void OnInit() {
 
-        (Objects.requireNonNull(getActivity())).getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        (requireActivity()).getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         bundleArguments = this.getArguments();
-        this.nestedScrollViewNoticias = Objects.requireNonNull(getView()).findViewById(R.id.nestedScrollViewNoticias);
+        this.nestedScrollViewNoticias = requireView().findViewById(R.id.nestedScrollViewNoticias);
         this.nestedScrollViewNoticias.setOnClickListener(view -> onDonationPosition());
         if (bundleArguments != null)
             cacccGenericParcelableHelper = bundleArguments.getParcelable(ConstantHelper.objCaccc);
@@ -99,7 +98,7 @@ public class DoacaoFragment extends _SuperFragment {
 
     private void DoacaoLoad(String url) {
         try {
-            this.progressBar = Objects.requireNonNull(getView()).findViewById(R.id.progress_bar);
+            this.progressBar = requireView().findViewById(R.id.progress_bar);
             this.progressBar.setVisibility(View.VISIBLE);
             if (cacccGenericParcelableHelper.getValue() != null && (cacccGenericParcelableHelper.getValue().getConteudos() != null && cacccGenericParcelableHelper.getValue().getConteudos().size() > 0))
                 FillBankData(cacccGenericParcelableHelper.getValue());
@@ -140,10 +139,10 @@ public class DoacaoFragment extends _SuperFragment {
     private void FillBankData(Caccc caccc) {
         try {
 
-            TextView lblDadosBancarios = Objects.requireNonNull(getView()).findViewById(R.id.lblDadosBancarios);
-            ImageView imageViewPagSeguro = Objects.requireNonNull(getView()).findViewById(R.id.imgPagSeguro);
-            ImageView imageViewPayPal = Objects.requireNonNull(getView()).findViewById(R.id.imgPayPay);
-            CardView cardViewIntegracao = Objects.requireNonNull(getView()).findViewById(R.id.cardIntegracao);
+            TextView lblDadosBancarios = requireView().findViewById(R.id.lblDadosBancarios);
+            ImageView imageViewPagSeguro = requireView().findViewById(R.id.imgPagSeguro);
+            ImageView imageViewPayPal = requireView().findViewById(R.id.imgPayPay);
+            CardView cardViewIntegracao = requireView().findViewById(R.id.cardIntegracao);
 
             if (caccc != null) {
 

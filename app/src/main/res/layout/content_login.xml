@@ -26,10 +26,10 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="15dp"
             android:src="@drawable/identification_64"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -41,12 +41,14 @@
                 android:hint="@string/prompt_name"
                 android:imeOptions="actionUnspecified"
                 android:inputType="textPersonName"
-                android:maxLines="1" />
+                android:maxLines="1"
+                tools:ignore="VisualLintTextFieldSize,TouchTargetSizeCheck"
+                android:autofillHints="" />
 
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -57,9 +59,10 @@
                 android:focusableInTouchMode="false"
                 android:hint="@string/prompt_email"
                 android:inputType="textEmailAddress"
-                android:maxLines="1" />
+                android:maxLines="1"
+                tools:ignore="VisualLintTextFieldSize,TouchTargetSizeCheck" />
 
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <Button
@@ -76,9 +79,9 @@
             android:foreground="?attr/selectableItemBackground"
             android:text="@string/action_sign_in"
             android:textAllCaps="false"
-            android:textColor="@color/colorFontWhite"
+            android:textColor="#455A64"
             android:textStyle="bold"
-            tools:ignore="RtlHardcoded" />
+            tools:ignore="RtlHardcoded,VisualLintButtonSize,TouchTargetSizeCheck" />
 
 
         <!-- Login progress -->

@@ -5,9 +5,6 @@ import java.util.Collection;
 import java.util.Date;
 
 import br.com.lustoza.doacaomais.Domain.ObjectValue.MasterDomain;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * Created by Adilson on 04/12/2017.

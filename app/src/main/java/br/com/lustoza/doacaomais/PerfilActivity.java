@@ -1,5 +1,7 @@
 package br.com.lustoza.doacaomais;
 
+import static br.com.lustoza.doacaomais.Helper.ConstantHelper.CEP_MASK;
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -7,14 +9,15 @@ import android.location.Geocoder;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +29,6 @@ import br.com.lustoza.doacaomais.Helper.PrefHelper;
 import br.com.lustoza.doacaomais.Helper.TrackHelper;
 import br.com.lustoza.doacaomais.Services.Mapa.MapService;
 import br.com.lustoza.doacaomais.Utils.MaskWatcher;
-
-import static br.com.lustoza.doacaomais.Helper.ConstantHelper.CEP_MASK;
 
 public class PerfilActivity extends _SuperActivity {
 
@@ -298,6 +299,7 @@ public class PerfilActivity extends _SuperActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         try {
 
             if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
@@ -318,9 +320,8 @@ public class PerfilActivity extends _SuperActivity {
         try {
 
             intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            if (intent.resolveActivity(getPackageManager()) != null) {
+            if (intent.resolveActivity(getPackageManager()) != null)
                 startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
-            }
         } catch (Exception ex) {
             TrackHelper.WriteError(this, "GetPhoto", ex.getMessage());
         }

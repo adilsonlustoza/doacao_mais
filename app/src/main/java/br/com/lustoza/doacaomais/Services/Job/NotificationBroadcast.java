@@ -35,7 +35,7 @@ public class NotificationBroadcast extends BroadcastReceiver {
             Intent intent = new Intent(context, NotificationService.class);
             pendingIntent = PendingIntent.getService(context, 0, intent, 0);
 
-            boolean isActive = (pendingIntent = PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_NO_CREATE)) == null;
+            boolean isActive = (pendingIntent = PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_NO_CREATE | PendingIntent.FLAG_IMMUTABLE)) == null;
 
             if (!isActive) {
                 Calendar calendar = Calendar.getInstance();

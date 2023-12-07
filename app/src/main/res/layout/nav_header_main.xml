@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
     android:background="@drawable/navegation_drawer"
@@ -23,7 +24,9 @@
         android:longClickable="true"
         android:maxWidth="50dp"
         android:maxHeight="50dp"
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY"
+        android:contentDescription="TODO"
+        tools:ignore="ContentDescription,HardcodedText,RtlHardcoded" />
 
 
     <TextView
@@ -35,7 +38,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/colorPreto"
         android:textSize="15sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
     <TextView
         android:id="@+id/txtEmailNavHeader"
@@ -44,6 +48,7 @@
         android:text="android.studio@android.com"
         android:textColor="@color/colorPreto"
         android:textSize="13sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
 
 </LinearLayout>

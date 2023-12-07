@@ -13,7 +13,7 @@
     tools:context="br.com.lustoza.doacaomais.PerfilActivity">
 
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="always"
@@ -51,9 +51,10 @@
                     android:layout_toEndOf="@+id/imgPerfil"
                     android:clickable="true"
                     android:text="@string/labelImagePerfil"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="#F4511E"
                     android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="TouchTargetSizeCheck" />
 
 
             </RelativeLayout>
@@ -79,7 +80,8 @@
                     android:text="Nome"
                     android:textColor="@color/colorPreto"
                     android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
 
                 <EditText
                     android:id="@+id/txtNomePerfil"
@@ -88,14 +90,16 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
-                    android:layout_toRightOf="@+id/lblNomePerfil"
+                    android:layout_toEndOf="@+id/lblNomePerfil"
                     android:cursorVisible="false"
                     android:enabled="false"
                     android:focusable="false"
                     android:hint="@string/entre_com_o_nome_de_perfil"
                     android:inputType="none"
                     android:textColor="@color/color_grey"
-                    android:textSize="15dp" />
+                    android:textSize="15sp"
+                    tools:ignore="TextSizeCheck,TouchTargetSizeCheck,VisualLintTextFieldSize"
+                    android:autofillHints="" />
 
 
                 <TextView
@@ -107,7 +111,8 @@
                     android:text="Email"
                     android:textColor="@color/colorPreto"
                     android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
 
                 <EditText
                     android:id="@+id/txtEmailPerfil"
@@ -123,7 +128,9 @@
                     android:hint="@string/entre_com_o_email_de_perfil"
                     android:inputType="none"
                     android:textColor="@color/color_grey"
-                    android:textSize="15dp" />
+                    android:textSize="15sp"
+                    tools:ignore="TextFields,TextSizeCheck,TouchTargetSizeCheck,VisualLintTextFieldSize"
+                    android:autofillHints="" />
 
             </RelativeLayout>
 
@@ -137,7 +144,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="215dp">
+                android:layout_height="215dp"
+                tools:ignore="TextSizeCheck">
 
 
                 <TextView
@@ -147,7 +155,8 @@
                     android:text="Logradouro"
                     android:textColor="@color/colorPreto"
                     android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
 
                 <EditText
                     android:id="@+id/txtLogradourolPerfil"
@@ -159,11 +168,14 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="0dp"
                     android:ellipsize="end"
-                    android:hint="Entre com o logradouro"
+                    android:hint="@string/entre_com_o_logradouro"
                     android:inputType="textAutoComplete"
                     android:maxLines="1"
+                    android:minHeight="48dp"
                     android:scrollHorizontally="true"
-                    android:textSize="15dp" />
+                    android:textSize="15sp"
+                    tools:ignore="TextSizeCheck,VisualLintTextFieldSize"
+                    android:autofillHints="" />
 
 
                 <TextView
@@ -176,7 +188,7 @@
                     android:textSize="15sp"
                     android:textStyle="bold"
 
-                    />
+                    tools:ignore="HardcodedText" />
 
                 <EditText
                     android:id="@+id/txtBairroPerfil"
@@ -189,8 +201,10 @@
                     android:ellipsize="end"
                     android:hint="Entre com o bairro"
                     android:maxLines="1"
+                    android:minHeight="48dp"
                     android:scrollHorizontally="true"
-                    android:textSize="15dp" />
+                    android:textSize="15dp"
+                    tools:ignore="Autofill,HardcodedText,SpUsage,TextFields,TextSizeCheck,VisualLintTextFieldSize" />
 
 
                 <TextView
@@ -204,7 +218,7 @@
                     android:textSize="15sp"
                     android:textStyle="bold"
 
-                    />
+                    tools:ignore="HardcodedText" />
 
 
                 <EditText
@@ -218,8 +232,10 @@
                     android:ellipsize="end"
                     android:hint="Entre com a cidade"
                     android:maxLines="1"
+                    android:minHeight="48dp"
                     android:scrollHorizontally="true"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    tools:ignore="Autofill,HardcodedText,TextFields,VisualLintTextFieldSize" />
 
                 <TextView
                     android:id="@+id/lblEstadoPerfil"
@@ -230,7 +246,8 @@
                     android:textAlignment="textStart"
                     android:textColor="@color/colorPreto"
                     android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
 
 
                 <Spinner
@@ -241,7 +258,8 @@
                     android:layout_alignTop="@+id/lblEstadoPerfil"
                     android:layout_alignParentEnd="true"
                     android:entries="@array/combo_estado"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    tools:ignore="TouchTargetSizeCheck" />
 
 
                 <TextView
@@ -252,7 +270,8 @@
                     android:textAlignment="textStart"
                     android:textColor="@color/colorPreto"
                     android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
 
                 <EditText
                     android:id="@+id/txtCEPPerfil"
@@ -272,7 +291,8 @@
                     android:scrollHorizontally="true"
                     android:textSize="15sp"
 
-                    />
+                    tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintTextFieldSize"
+                    android:importantForAutofill="no" />
 
 
             </RelativeLayout>
@@ -283,7 +303,7 @@
                 android:layout_height="130dp">
 
 
-                <android.support.design.widget.FloatingActionButton
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fab_enviar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -298,7 +318,9 @@
                     app:elevation="6dp"
                     app:fabSize="normal"
                     app:layout_anchorGravity="bottom|left|end"
-                    app:pressedTranslationZ="12dp" />
+                    app:pressedTranslationZ="12dp"
+                    tools:ignore="ImageContrastCheck,RtlHardcoded,SpeakableTextPresentCheck"
+                    android:importantForAccessibility="no" />
 
 
             </RelativeLayout>
@@ -307,7 +329,7 @@
         </LinearLayout>
 
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
 </RelativeLayout>

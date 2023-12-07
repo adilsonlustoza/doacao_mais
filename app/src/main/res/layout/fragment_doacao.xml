@@ -10,7 +10,7 @@
     tools:context="br.com.lustoza.doacaomais.Fragments.DoacaoFragment">
 
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollViewNoticias"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -21,10 +21,11 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="ExtraText">
 
-            <!--
-            <android.support.v7.widget.CardView
+
+            <androidx.cardview.widget.CardView
                 cardCornerRadius="2dp"
                 cardUseCompatPadding="true"
                 android:layout_width="match_parent"
@@ -36,7 +37,8 @@
                 android:contextClickable="true"
                 app:cardMaxElevation="2dp"
                 app:cardUseCompatPadding="true"
-                tools:targetApi="lollipop">
+                tools:targetApi="lollipop"
+                tools:ignore="ObsoleteSdkInt">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -59,23 +61,23 @@
                         android:textColor="@color/colorFontWhite"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,TextContrastCheck" />
 
                     <TextView
                         android:id="@+id/lblNomeCentro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txtCaptionCentro"
-                        android:layout_marginEnd="15dp"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="5dp"
+                        android:layout_marginEnd="15dp"
                         android:layout_marginBottom="1dp"
-                        android:singleLine="false"
                         android:inputType="textMultiLine"
+                        android:singleLine="false"
                         android:textColor="@color/colorPreto"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry"/>
+                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,SpeakableTextPresentCheck,TextViewEdits,TouchTargetSizeCheck" />
 
 
                     <TextView
@@ -83,15 +85,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/lblNomeCentro"
-                        android:layout_marginEnd="15dp"
                         android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
                         android:layout_marginBottom="1dp"
-                        android:singleLine="false"
                         android:inputType="textMultiLine"
+                        android:singleLine="false"
                         android:textColor="@color/colorPreto"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry"/>
+                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,SpeakableTextPresentCheck,TextViewEdits,TouchTargetSizeCheck" />
 
 
                     <TextView
@@ -99,15 +101,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/lblTelefoneCentro"
-                        android:layout_marginEnd="15dp"
                         android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
                         android:layout_marginBottom="5dp"
-                        android:singleLine="false"
                         android:inputType="textMultiLine"
+                        android:singleLine="false"
                         android:textColor="@color/colorPreto"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry"/>
+                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,TextViewEdits,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 
                     <TextView
@@ -115,23 +117,23 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/lblEmailCentro"
-                        android:layout_marginEnd="15dp"
                         android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
                         android:layout_marginBottom="5dp"
-                        android:singleLine="false"
                         android:inputType="textMultiLine"
+                        android:singleLine="false"
                         android:textColor="@color/colorPreto"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry"/>
+                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,SpeakableTextPresentCheck,TextViewEdits,TouchTargetSizeCheck" />
 
 
                 </RelativeLayout>
 
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 cardCornerRadius="2dp"
                 cardUseCompatPadding="true"
                 android:layout_width="match_parent"
@@ -141,7 +143,8 @@
                 android:contentDescription="@string/accept"
                 android:padding="10dp"
                 app:cardMaxElevation="2dp"
-                tools:targetApi="lollipop">
+                tools:targetApi="lollipop"
+                tools:ignore="ObsoleteSdkInt">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -160,7 +163,7 @@
                         android:textColor="@color/colorFontWhite"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,TextContrastCheck" />
 
 
                     <TextView
@@ -168,26 +171,26 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txtCaptionHistorico"
-                        android:layout_marginEnd="15dp"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="5dp"
+                        android:layout_marginEnd="15dp"
                         android:layout_marginBottom="5dp"
-                        android:singleLine="false"
                         android:inputType="textMultiLine"
+                        android:justificationMode="inter_word"
+                        android:singleLine="false"
                         android:textColor="@color/colorPreto"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        android:justificationMode="inter_word"
-                        tools:ignore="HardcodedText" />
+                        tools:ignore="HardcodedText,SpeakableTextPresentCheck,TextViewEdits,TouchTargetSizeCheck" />
 
 
                 </RelativeLayout>
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
             -->
 
             <!--Doar com Cartão de Crédito-->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/cardIntegracao"
                 cardCornerRadius="2dp"
                 cardUseCompatPadding="true"
@@ -259,9 +262,9 @@
                 </RelativeLayout>
 
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
             <!--Dados Bancários-->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 cardCornerRadius="2dp"
                 cardUseCompatPadding="true"
                 android:layout_width="match_parent"
@@ -292,7 +295,7 @@
                         android:textColor="@color/colorFontWhite"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        tools:ignore="RtlHardcoded,RtlSymmetry" />
+                        tools:ignore="RtlHardcoded,RtlSymmetry,TextContrastCheck" />
 
                     <TextView
                         android:id="@+id/lblDadosBancarios"
@@ -308,305 +311,20 @@
                         android:textColor="@color/colorPreto"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText" />
+                        tools:ignore="HardcodedText,TextViewEdits,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 
                 </RelativeLayout>
 
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
     <include layout="@layout/include_progress" />
 
-    <!--
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:overScrollMode="always"
-        android:verticalScrollbarPosition="right"
-
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-            <android.support.v7.widget.CardView
-                cardCornerRadius="2dp"
-                cardUseCompatPadding="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:contentDescription="@string/accept"
-                android:padding="10dp"
-                app:cardMaxElevation="2dp"
-                app:cardUseCompatPadding="true"
-                tools:targetApi="lollipop">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/card_edge"
-                    android:orientation="vertical">
-
-                    <TableLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:shrinkColumns="0"
-                        android:stretchColumns="1"
-                        >
-
-
-                        <TextView
-                            android:id="@+id/txtDadosRetirada"
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/round_btn_green"
-                            android:paddingLeft="15dp"
-                            android:paddingTop="5dp"
-                            android:text="Meus dados de contato"
-                            android:textAlignment="gravity"
-                            android:textColor="@color/colorFontWhite"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
-
-
-
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:id="@+id/txtTipoRetirada"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingLeft="23dp"
-                                android:text="Tipo"
-                                android:textColor="@color/colorPreto"
-                                android:textSize="15sp"
-                                android:textStyle="bold"
-                                tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
-
-
-                            <Spinner
-                                android:id="@+id/spinnerTipoRetirada"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:entries="@array/tipo_retirada"
-                                android:textSize="15sp" />
-
-                        </TableRow>
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:id="@+id/lblResponsavel"
-                                android:layout_width="62dp"
-                                android:layout_height="wrap_content"
-                                android:text="@string/nome_responsavel"
-                                android:paddingStart="18dp"
-                                android:textColor="@color/colorPreto"
-                                android:textSize="15sp"
-                                android:textStyle="bold" />
-
-                            <EditText
-                                android:id="@+id/txtResponsavel"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:maxWidth="200dp"
-                                android:paddingEnd="20dp"
-                                android:layout_alignStart="@+id/txtTelefone"
-                                android:layout_below="@+id/spinnerTipoRetirada"
-                                android:hint="@string/txt_nome_responsavel"
-                                android:inputType="text"
-                                android:scrollHorizontally="true"
-                                android:ellipsize="end"
-                                android:maxLines="1"
-                                android:textSize="15sp" />
-
-                        </TableRow>
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <TextView
-                                android:id="@+id/lblTelefone"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingLeft="20dp"
-                                android:text="@string/lbl_telefone"
-                                android:textColor="@color/colorPreto"
-                                android:textSize="15sp"
-                                android:textStyle="bold" />
-
-                            <EditText
-                                android:id="@+id/txtTelefone"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:scrollHorizontally="true"
-                                android:maxWidth="200dp"
-                                android:ellipsize="end"
-                                android:maxLines="1"
-                                android:maxLength="13"
-                                android:paddingRight="20dp"
-                                android:hint="@string/mascara_telefone"
-                                android:inputType="phone"
-                                android:textSize="15sp" />
-
-                        </TableRow>
-
-
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <TextView
-                                android:id="@+id/lblCelular"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingLeft="30dp"
-                                android:text="@string/lbl_celular"
-                                android:textColor="@color/colorPreto"
-                                android:textSize="15sp"
-                                android:textStyle="bold" />
-
-                            <EditText
-                                android:id="@+id/txtCelular"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:scrollHorizontally="true"
-                                android:maxWidth="200dp"
-                                android:ellipsize="end"
-                                android:maxLines="1"
-                                android:maxLength="14"
-                                android:paddingRight="20dp"
-                                android:hint="@string/mascara_celular"
-                                android:inputType="phone"
-                                android:textSize="15sp" />
-
-                        </TableRow>
-
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-
-                            <TextView
-                                android:id="@+id/lblData"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingLeft="20dp"
-                                android:text="Data"
-                                android:textColor="@color/colorPreto"
-                                android:textSize="15sp"
-                                android:textStyle="bold" />
-
-
-                            <Button
-                                android:id="@+id/btnData"
-                                android:layout_width="wrap_content"
-                                android:layout_height="32dp"
-                                android:layout_below="@id/txtTelefone"
-                                android:background="@drawable/round_btn_green"
-                                android:layout_marginRight="120dp"
-                                android:text="12/06/1979"
-                                android:textAllCaps="false"
-                                android:textColor="@color/colorFontWhite" />
-
-                        </TableRow>
-
-
-                        <TableRow
-
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                        </TableRow>
-
-                            <TextView
-                                android:id="@+id/lblObservacao"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_horizontal"
-                                android:maxLines="15"
-                                android:layout_marginTop="15dp"
-                                android:text="Quero saber mais!"
-                                android:textColor="@color/colorPreto"
-                                android:textSize="17sp"
-                                android:textStyle="bold|italic" />
-
-
-                            <EditText
-                                android:id="@+id/txtObservacao"
-                                android:layout_width="match_parent"
-                                android:height="100dp"
-                                android:layout_below="@+id/lblObservacao"
-                                android:background="@drawable/edit_text_background"
-                                android:layout_margin="5dp"
-                                android:padding="3dp"
-                                android:fadeScrollbars="true"
-                                android:gravity="top|left"
-                                android:hint="@string/txt_descreva_aqui_retirar"
-                                android:inputType="textMultiLine"
-                                android:scrollbarStyle="outsideInset"
-                                android:scrollbars="vertical"
-                                android:singleLine="false"
-                                android:textColor="@color/colorPreto"
-                                android:textSize="15sp"
-                                android:textStyle="normal"
-                                android:scrollHorizontally="true"
-                                android:ellipsize="end"
-                                android:paddingRight="20dp"
-                                android:tooltipText="Descreva as informações adicionais"
-                                android:verticalScrollbarPosition="right" />
-
-
-
-
-                    </TableLayout>
-
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fab_agenda"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right|end"
-                android:layout_marginBottom="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="0dp"
-                android:cropToPadding="true"
-                android:src="@drawable/agenda_32"
-                app:backgroundTint="@color/colorPrimaryDark"
-                app:elevation="2dp"
-                app:fabSize="normal"
-                app:layout_anchorGravity="bottom|right|end"
-                app:pressedTranslationZ="12dp"
-
-                />
-
-
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
--->
 </FrameLayout>

@@ -2,14 +2,15 @@ package br.com.lustoza.doacaomais.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
@@ -31,10 +32,8 @@ public class BazarAdapter extends RecyclerView.Adapter<BazarAdapter.DoacaoViewHo
 
     private final List<Bazar> bazarList;
     private OnDoacaoItemClickListener onItemClickListener;
-
     public BazarAdapter(List<Bazar> bazarList) {
         this.bazarList = bazarList;
-
     }
 
     @NotNull

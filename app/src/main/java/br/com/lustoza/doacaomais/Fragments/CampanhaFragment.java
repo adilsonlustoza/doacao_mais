@@ -17,7 +17,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import br.com.lustoza.doacaomais.Adapter.CampanhaAdapter;
 import br.com.lustoza.doacaomais.Domain.Caccc;

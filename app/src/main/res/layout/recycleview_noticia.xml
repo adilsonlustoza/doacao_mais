@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nestedScrollViewNoticias"
@@ -8,15 +9,15 @@
     android:layout_height="wrap_content"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <android.support.v7.widget.CardView xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    <androidx.cardview.widget.CardView
         android:id="@+id/cardViewNoticias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        cardview:cardCornerRadius="7dp"
-        cardview:cardElevation="0dp"
-        cardview:cardUseCompatPadding="true"
-        cardview:contentPadding="0dp">
+        app:cardCornerRadius="7dp"
+        app:cardElevation="0dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,12 +36,13 @@
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/image"
                 android:scaleType="centerCrop"
-                tools:ignore="ContentDescription,InefficientWeight" />
+                tools:ignore="ContentDescription,InefficientWeight,ImageContrastCheck" />
 
-            <android.support.v7.widget.CardView xmlns:cardview="http://schemas.android.com/apk/res-auto"
+            <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewContent"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                tools:ignore="RedundantNamespace">
 
                 <TextView
                     android:id="@+id/txtTitle"
@@ -72,7 +74,7 @@
                     tools:ignore="RtlHardcoded" />
 
 
-                <org.sufficientlysecure.htmltextview.HtmlTextView
+                <TextView
                     android:id="@+id/txtContent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -82,15 +84,13 @@
                     android:paddingRight="22dp"
                     android:paddingBottom="10dp" />
 
-                />
 
-
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
 
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-</android.support.v4.widget.NestedScrollView>
+</androidx.core.widget.NestedScrollView>
 

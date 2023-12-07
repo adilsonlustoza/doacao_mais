@@ -1,7 +1,6 @@
 package br.com.lustoza.doacaomais.Adapter;
 
 import android.annotation.SuppressLint;
-
 import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +10,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
-import org.sufficientlysecure.htmltextview.HtmlResImageGetter;
-import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import java.util.List;
 
@@ -27,7 +24,6 @@ import br.com.lustoza.doacaomais.Utils.UtilityMethods;
 
 public class CampanhaAdapter extends RecyclerView.Adapter<CampanhaAdapter.CampanhaViewHolder> {
     private final List<Campanha> campanhaList;
-
     public CampanhaAdapter(List<Campanha> tabCampanhas) {
         this.campanhaList = tabCampanhas;
     }
@@ -45,7 +41,7 @@ public class CampanhaAdapter extends RecyclerView.Adapter<CampanhaAdapter.Campan
         Campanha campanha = campanhaList.get(position);
         holder.textViewTitle.setText(HtmlHelper.fromHtml(String.format("%s ", campanha.getNome())));
         holder.textViewTipoCampanha.setText(HtmlHelper.fromHtml(String.format(" %s ", UtilityMethods.getTipoCampanha(campanha.getTipoCampanha()))));
-        holder.textViewContent.setHtml(campanha.getDescricao(), new HtmlResImageGetter(holder.textViewContent.getContext()));
+        holder.textViewContent.setText(campanha.getDescricao());
         String dataVigencia = "Vigência não informada.";
         if (campanha.getDataInicial() != null && campanha.getDataFinal() != null)
             dataVigencia = "Vigência de  : " + UtilityMethods.ParseDateToString(campanha.getDataInicial()) + "  a " + UtilityMethods.ParseDateToString(campanha.getDataFinal());
@@ -68,7 +64,7 @@ public class CampanhaAdapter extends RecyclerView.Adapter<CampanhaAdapter.Campan
     static class CampanhaViewHolder extends RecyclerView.ViewHolder {
         private final TextView textViewTitle;
         private final TextView textViewTipoCampanha;
-        private final HtmlTextView textViewContent;
+        private final TextView textViewContent;
         private final TextView textViewData;
 
         public CampanhaViewHolder(View view) {

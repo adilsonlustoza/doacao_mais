@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -19,7 +21,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import java.util.Arrays;
+import java.util.Collections;
 
 import br.com.lustoza.doacaomais.Helper.ConstantHelper;
 import br.com.lustoza.doacaomais.Helper.TrackHelper;
@@ -41,10 +43,7 @@ public class WelcomeActivity extends _SuperActivity implements View.OnClickListe
     // private GoogleApi googleApi;
     //Components Commons
     private Button loginEmailButton;
-    private TextView textView;
-    private Intent intent;
     private ProgressBar progressBar;
-    private String exit;
 
     private IWelcome.IPresenterWelcome iPresenterWelcome;
 
@@ -89,7 +88,7 @@ public class WelcomeActivity extends _SuperActivity implements View.OnClickListe
     @Override
     public void GoogleWidgets() {
         signInButton.setSize(SignInButton.SIZE_WIDE);
-        textView = (TextView) signInButton.getChildAt(0);
+        TextView textView = (TextView) signInButton.getChildAt(0);
         textView.setText(R.string.google_button_text);
         signInButton.setOnClickListener((View.OnClickListener) superContext);
     }
@@ -101,7 +100,7 @@ public class WelcomeActivity extends _SuperActivity implements View.OnClickListe
 
     private void signIn() {
         try {
-            intent = Auth.GoogleSignInApi.getSignInIntent(_mGoogleApiClient);
+            Intent intent = Auth.GoogleSignInApi.getSignInIntent(_mGoogleApiClient);
             startActivityForResult(intent, RC_SIGN_IN);
         } catch (Exception e) {
             TrackHelper.WriteError(superContext, "signIn", e.getMessage());
@@ -117,10 +116,8 @@ public class WelcomeActivity extends _SuperActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.sign_in_button:
-                signIn();
-                break;
+        if (v.getId() == R.id.sign_in_button) {
+            signIn();
         }
     }
 
@@ -139,23 +136,6 @@ public class WelcomeActivity extends _SuperActivity implements View.OnClickListe
     }
 
 
-/*
-    @Override
-    public void ExitApp() {
-        try {
-
-            this.showProgressBar(View.GONE);
-            exit = getIntent().getStringExtra("Sair");
-            if (exit != null && exit.equals("Sim")) {
-                finishAffinity();
-            }
-        } catch (Exception e) {
-            TrackHelper.WriteError(this, "OnInit", e.getMessage());
-
-        }
-
-    }*/
-
     @Override
     public void showProgressBar(int visibilidade) {
         this.progressBar.setVisibility(visibilidade);
@@ -164,13 +144,10 @@ public class WelcomeActivity extends _SuperActivity implements View.OnClickListe
     @Override
     public void ConfigToEmail() {
 
-        loginEmailButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ConstantHelper.isLogado = false;
-                iPresenterWelcome.goToLoginEmail();
+        loginEmailButton.setOnClickListener(v -> {
+            ConstantHelper.isLogado = false;
+            iPresenterWelcome.goToLoginEmail();
 
-            }
         });
     }
 
@@ -188,7 +165,7 @@ public class WelcomeActivity extends _SuperActivity implements View.OnClickListe
     @Override
     public void FacebookWidgetsEvents() {
 
-        loginFaceButton.setReadPermissions(Arrays.asList("public_profile,email"));
+        loginFaceButton.setReadPermissions(Collections.singletonList("public_profile,email"));
         // Callback registration
         loginFaceButton.registerCallback(_callbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -207,7 +184,7 @@ public class WelcomeActivity extends _SuperActivity implements View.OnClickListe
             }
 
             @Override
-            public void onError(FacebookException exception) {
+            public void onError(@NonNull FacebookException exception) {
                 // App code
             }
         });

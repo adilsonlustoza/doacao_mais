@@ -5,7 +5,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Build;
-
+import android.text.Html;
 import android.text.TextUtils;
 import android.text.util.Linkify;
 import android.view.Display;
@@ -23,9 +23,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
-import org.sufficientlysecure.htmltextview.HtmlResImageGetter;
-import org.sufficientlysecure.htmltextview.HtmlTextView;
-
 
 import java.util.List;
 
@@ -79,7 +76,7 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.NoticiaV
         else
             holder.textViewData.setText(HtmlHelper.fromHtml("Data não divulgada"));
 
-        holder.textViewDescription.setHtml(noticia.getConteudo(), new HtmlResImageGetter(holder.textViewDescription.getContext()));
+        holder.textViewDescription.setText(Html.fromHtml(noticia.getConteudo()));
         Linkify.addLinks(holder.textViewDescription, Linkify.ALL);
 
         View.OnClickListener listener = v -> onItemClickListener.onItemClick(noticia);
@@ -131,7 +128,7 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.NoticiaV
         private final ImageView imageView;
         private final TextView textViewTitle;
         private final TextView textViewData;
-        private final HtmlTextView textViewDescription;
+        private final TextView textViewDescription;
         private final CardView cardView;
         private final CardView cardViewContent;
 

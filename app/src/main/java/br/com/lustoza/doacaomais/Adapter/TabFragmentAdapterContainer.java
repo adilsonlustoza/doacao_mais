@@ -2,13 +2,11 @@ package br.com.lustoza.doacaomais.Adapter;
 
 import android.os.Bundle;
 
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-
 
 import br.com.lustoza.doacaomais.Fragments.CacccFragment;
 import br.com.lustoza.doacaomais.Fragments.CampanhaFragment;

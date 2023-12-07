@@ -10,7 +10,7 @@
     tools:context=".Fragments.CacccFragment">
 
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollViewNoticias"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -24,7 +24,7 @@
             android:orientation="vertical">
 
             <!--Informações Centro-->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 cardCornerRadius="2dp"
                 cardUseCompatPadding="true"
                 android:layout_width="match_parent"
@@ -36,7 +36,8 @@
                 android:padding="10dp"
                 app:cardMaxElevation="2dp"
                 app:cardUseCompatPadding="true"
-                tools:targetApi="lollipop">
+                tools:targetApi="lollipop"
+                tools:ignore="ObsoleteSdkInt">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -56,7 +57,7 @@
                         android:paddingTop="5dp"
                         android:text="Instituição"
                         android:textAlignment="gravity"
-                        android:textColor="@color/colorFontWhite"
+                        android:textColor="#455A64"
                         android:textSize="15sp"
                         android:textStyle="bold"
                         tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
@@ -75,7 +76,7 @@
                         android:textColor="@color/colorPreto"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,SpeakableTextPresentCheck,TextViewEdits,TouchTargetSizeCheck" />
 
 
                     <TextView
@@ -91,7 +92,7 @@
                         android:textColor="@color/colorPreto"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,SpeakableTextPresentCheck,TextViewEdits,TouchTargetSizeCheck" />
 
 
                     <TextView
@@ -107,7 +108,7 @@
                         android:textColor="@color/colorPreto"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,SpeakableTextPresentCheck,TextViewEdits,TouchTargetSizeCheck" />
 
 
                     <TextView
@@ -123,15 +124,15 @@
                         android:textColor="@color/colorPreto"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,SpeakableTextPresentCheck,TextViewEdits,TouchTargetSizeCheck" />
 
 
                 </RelativeLayout>
 
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
             <!--Nossa história-->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 cardCornerRadius="2dp"
                 cardUseCompatPadding="true"
                 android:layout_width="match_parent"
@@ -141,7 +142,8 @@
                 android:contentDescription="@string/accept"
                 android:padding="10dp"
                 app:cardMaxElevation="2dp"
-                tools:targetApi="lollipop">
+                tools:targetApi="lollipop"
+                tools:ignore="ObsoleteSdkInt">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -157,7 +159,7 @@
                         android:paddingLeft="15dp"
                         android:paddingTop="5dp"
                         android:text="Apresentação"
-                        android:textColor="@color/colorFontWhite"
+                        android:textColor="#455A64"
                         android:textSize="15sp"
                         android:textStyle="bold"
                         tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
@@ -178,15 +180,15 @@
                         android:textColor="@color/colorPreto"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText" />
+                        tools:ignore="HardcodedText,SpeakableTextPresentCheck,TextViewEdits,TouchTargetSizeCheck" />
 
 
                 </RelativeLayout>
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
             <!--Doar com Cartão de Crédito-->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/cardIntegracao"
                 cardCornerRadius="2dp"
                 cardUseCompatPadding="true"
@@ -258,9 +260,9 @@
                 </RelativeLayout>
 
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
             <!--Dados Bancários-->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewBanco"
                 cardCornerRadius="2dp"
                 cardUseCompatPadding="true"
@@ -289,7 +291,7 @@
                         android:paddingTop="5dp"
                         android:text="@string/doacao_na_conta_bancaria"
                         android:textAlignment="gravity"
-                        android:textColor="@color/colorFontWhite"
+                        android:textColor="#455A64"
                         android:textSize="15sp"
                         android:textStyle="bold"
                         tools:ignore="RtlHardcoded,RtlSymmetry" />
@@ -308,18 +310,18 @@
                         android:textColor="@color/colorPreto"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText" />
+                        tools:ignore="HardcodedText,TextViewEdits,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 
                 </RelativeLayout>
 
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
     <include layout="@layout/include_progress" />

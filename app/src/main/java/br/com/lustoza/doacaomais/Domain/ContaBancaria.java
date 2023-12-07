@@ -1,9 +1,6 @@
 package br.com.lustoza.doacaomais.Domain;
 
 import br.com.lustoza.doacaomais.Domain.ObjectValue.MasterDomain;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 
 public class ContaBancaria extends MasterDomain {
 

@@ -8,7 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/cardbackground"
-        android:overScrollMode="always">
+        android:overScrollMode="always"
+        tools:ignore="UselessParent">
 
 
         <com.github.mikephil.charting.charts.PieChart

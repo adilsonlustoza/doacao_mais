@@ -6,9 +6,6 @@ import java.util.Collection;
 import br.com.lustoza.doacaomais.Domain.ObjectValue.Endereco;
 import br.com.lustoza.doacaomais.Domain.ObjectValue.MasterDomain;
 import br.com.lustoza.doacaomais.Domain.ObjectValue.TpDoacao;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 
 public class Caccc extends MasterDomain {
 

@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cardbackground"
-    android:paddingLeft="0dp"
-    android:paddingTop="0dp"
-    android:paddingRight="0dp"
+    android:paddingEnd="0dp"
     android:paddingBottom="0dp"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="br.com.lustoza.doacaomais.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    app:layout_behavior=""
+
+    tools:showIn="@layout/app_bar_main"
+    tools:ignore="RtlSymmetry">
 
     <FrameLayout
         android:id="@+id/container"

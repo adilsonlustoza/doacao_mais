@@ -10,6 +10,7 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 
 import br.com.lustoza.doacaomais.Domain.Caccc;
 import br.com.lustoza.doacaomais.Domain.ObjectValue.TpDoacao;
@@ -39,7 +40,7 @@ public class WebViewActivity extends _SuperActivity {
         String emailPayPal;
         String centro;
 
-        Bundle objBundle = getIntent().getExtras().getBundle(ConstantHelper.objBundle);
+        Bundle objBundle = Objects.requireNonNull(getIntent().getExtras()).getBundle(ConstantHelper.objBundle);
         if (objBundle != null) {
 
             GenericParcelableHelper<Caccc> cacccGenericParcelableHelper = objBundle.getParcelable(ConstantHelper.objCaccc);
@@ -76,8 +77,8 @@ public class WebViewActivity extends _SuperActivity {
                     webSettings.setBuiltInZoomControls(true);
                     webSettings.setDisplayZoomControls(false);
 
-                    webSettings.setAppCachePath(getApplicationContext().getCacheDir().getAbsolutePath());
-                    webSettings.setAppCacheEnabled(true);
+                    webSettings.setDatabasePath(getApplicationContext().getCacheDir().getAbsolutePath());
+                    webSettings.setDatabaseEnabled(true);
 
                     webView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
                     webView.setPadding(0, 0, 0, 0);
@@ -114,9 +115,11 @@ public class WebViewActivity extends _SuperActivity {
                     String postData;
                     if (tpDoacao == TpDoacao.PagSeguro) {
                         postData = "currency='BRL'&receiverEmail='" + emailPagSeguro + "' ";
+                        assert ConstantHelper._urlPagSeguro != null;
                         webView.postUrl(ConstantHelper._urlPagSeguro, postData.getBytes());
                     } else if (tpDoacao == TpDoacao.PayPal) {
                         postData = "cmd=_donations&business=" + emailPayPal + "&lc=BR&item_name=" + centro + "&currency_code=BRL&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted";
+                        assert ConstantHelper._urlPayPal != null;
                         webView.postUrl(ConstantHelper._urlPayPal, postData.getBytes());
                     }
 

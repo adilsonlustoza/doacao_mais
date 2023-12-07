@@ -9,7 +9,7 @@
     tools:context=".WebViewActivity"
     tools:showIn="@layout/activity_web_view">
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
@@ -27,7 +27,7 @@
 
         </WebView>
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <include layout="@layout/include_progress"></include>
 

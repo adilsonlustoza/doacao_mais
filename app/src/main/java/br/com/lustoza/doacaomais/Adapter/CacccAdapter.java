@@ -2,7 +2,6 @@ package br.com.lustoza.doacaomais.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-
 import android.text.TextUtils;
 import android.text.util.Linkify;
 import android.view.LayoutInflater;

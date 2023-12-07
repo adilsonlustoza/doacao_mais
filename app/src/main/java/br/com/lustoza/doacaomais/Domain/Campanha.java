@@ -5,9 +5,6 @@ import java.util.Date;
 import java.util.List;
 
 import br.com.lustoza.doacaomais.Domain.ObjectValue.MasterDomain;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 
 public class Campanha extends MasterDomain {
 

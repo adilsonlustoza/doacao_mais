@@ -1,9 +1,5 @@
 package br.com.lustoza.doacaomais.Domain;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
-
 public class Dispositivo {
 
     public static String TAG = "Noticia";
