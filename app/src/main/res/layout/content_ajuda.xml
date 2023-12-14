@@ -14,7 +14,8 @@
         android:layout_height="76dp"
         android:layout_margin="1dp"
         android:orientation="vertical"
-        android:padding="4dp">
+        android:padding="4dp"
+        tools:ignore="TextSizeCheck">
 
         <androidx.cardview.widget.CardView
             cardBackgroundColor="@color/colorFontWhite"
@@ -39,9 +40,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_margin="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
                     android:contentDescription="TODO"
-                    android:src="@drawable/map_24" />
+                    android:src="@drawable/map_24"
+                    tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck" />
 
                 <TextView
                     android:id="@+id/lblLocalizacaoTitulo"
@@ -54,13 +59,16 @@
                     android:textColor="@color/colorPreto"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,TextViewEdits,TouchTargetSizeCheck" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/lblLocalizacaoTitulo"
-                    android:layout_margin="2dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
                     android:layout_toRightOf="@+id/imgLocalizacao"
                     android:inputType="textMultiLine"
                     android:singleLine="true"
@@ -68,7 +76,7 @@
                     android:textColor="@color/color_grey"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,TextViewEdits,TouchTargetSizeCheck,TextContrastCheck,VisualLintLongText" />
 
 
             </RelativeLayout>
@@ -86,7 +94,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:adjustViewBounds="true"
-            tools:targetApi="lollipop">
+            tools:targetApi="lollipop"
+            tools:ignore="ObsoleteSdkInt">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -100,8 +109,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/centros_24" />
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/centros_24"
+                    tools:ignore="ContentDescription,ImageContrastCheck" />
 
                 <TextView
                     android:id="@+id/lblEntidadeTitulo"
@@ -114,13 +127,16 @@
                     android:textColor="@color/colorPreto"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,TextViewEdits,TouchTargetSizeCheck" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/lblEntidadeTitulo"
-                    android:layout_margin="2dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
                     android:layout_toRightOf="@+id/imgEntidade"
                     android:inputType="textMultiLine"
                     android:singleLine="true"
@@ -128,7 +144,7 @@
                     android:textColor="@color/color_grey"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,TextContrastCheck,TextViewEdits,VisualLintLongText" />
 
 
             </RelativeLayout>
@@ -146,7 +162,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:adjustViewBounds="true"
-            tools:targetApi="lollipop">
+            tools:targetApi="lollipop"
+            tools:ignore="ObsoleteSdkInt">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -163,7 +180,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_margin="10dp"
-                    android:src="@drawable/shop_24" />
+                    android:src="@drawable/shop_24"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:id="@+id/lblBazarTitulo"
@@ -176,13 +194,16 @@
                     android:textColor="@color/colorPreto"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,TextViewEdits,TouchTargetSizeCheck" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/lblBazarTitulo"
-                    android:layout_margin="2dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
                     android:layout_toRightOf="@+id/imgBazar"
                     android:inputType="textMultiLine"
                     android:singleLine="true"
@@ -190,7 +211,7 @@
                     android:textColor="@color/color_grey"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,TextContrastCheck,TextViewEdits,TouchTargetSizeCheck,VisualLintLongText" />
 
 
             </RelativeLayout>
@@ -208,7 +229,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:adjustViewBounds="true"
-            tools:targetApi="lollipop">
+            tools:targetApi="lollipop"
+            tools:ignore="ObsoleteSdkInt">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -223,7 +245,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_margin="10dp"
-                    android:src="@drawable/newspaper_24" />
+                    android:src="@drawable/newspaper_24"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:id="@+id/lblNoticiaTitulo"
@@ -236,13 +259,16 @@
                     android:textColor="@color/colorPreto"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,TextViewEdits,TouchTargetSizeCheck" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/lblNoticiaTitulo"
-                    android:layout_margin="2dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
                     android:layout_toRightOf="@+id/imgNoticia"
                     android:inputType="textMultiLine"
                     android:singleLine="true"
@@ -250,7 +276,7 @@
                     android:textColor="@color/color_grey"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,TextContrastCheck,TextViewEdits,TouchTargetSizeCheck,VisualLintLongText" />
 
 
             </RelativeLayout>
@@ -268,7 +294,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:adjustViewBounds="true"
-            tools:targetApi="lollipop">
+            tools:targetApi="lollipop"
+            tools:ignore="ObsoleteSdkInt">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -283,7 +310,9 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_margin="10dp"
-                    android:src="@drawable/users_24" />
+                    android:src="@drawable/users_24"
+                    android:contentDescription="TODO"
+                    tools:ignore="ContentDescription,HardcodedText" />
 
                 <TextView
                     android:id="@+id/lblPerfilTitulo"
@@ -296,13 +325,16 @@
                     android:textColor="@color/colorPreto"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,TextViewEdits,TouchTargetSizeCheck" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/lblPerfilTitulo"
-                    android:layout_margin="2dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
                     android:layout_toRightOf="@+id/imgPerfil"
                     android:inputType="textMultiLine"
                     android:singleLine="true"
@@ -310,7 +342,7 @@
                     android:textColor="@color/color_grey"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,TextContrastCheck,TextViewEdits,TouchTargetSizeCheck,VisualLintLongText" />
 
 
             </RelativeLayout>
@@ -327,7 +359,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            tools:targetApi="lollipop">
+            tools:targetApi="lollipop"
+            tools:ignore="ObsoleteSdkInt">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -343,7 +376,8 @@
                     android:layout_centerVertical="true"
                     android:layout_margin="10dp"
                     android:contentDescription="TODO"
-                    android:src="@drawable/settings_24" />
+                    android:src="@drawable/settings_24"
+                    tools:ignore="ContentDescription,HardcodedText" />
 
                 <TextView
                     android:id="@+id/lblPreferenciaTitulo"
@@ -356,13 +390,16 @@
                     android:textColor="@color/colorPreto"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,TextViewEdits,TouchTargetSizeCheck" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/lblPreferenciaTitulo"
-                    android:layout_margin="2dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
                     android:layout_toRightOf="@+id/imgPreferencia"
                     android:inputType="textMultiLine"
                     android:singleLine="true"
@@ -370,7 +407,7 @@
                     android:textColor="@color/color_grey"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry,TextContrastCheck,TextViewEdits,TouchTargetSizeCheck" />
 
 
             </RelativeLayout>
